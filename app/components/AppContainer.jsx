@@ -6,13 +6,14 @@ var ProductDetales = require('../pages/productsDetales/index.js');
 var CreateProduct = require('../pages/createProduct/index.js');
 var Basket = require('../pages/basket/index.js');
 var PagePhone = require('../pages/pagePhone/index.js');
+var PageComp = require('../pages/pageComp/index.js');
 
 class AppContainer extends React.Component {
   render() {
     return(
       <div className="app-container" id="appContainer">
         <Header />
-        <PagePhone />
+        <PageComp />
         <Footer />
       </div>
     )
