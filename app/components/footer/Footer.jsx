@@ -31,8 +31,8 @@ class Footer extends React.Component {
             <div className="footer-text"><a href="#">help_shop@satu.kz</a></div>
           </div>
         </div>
-      <div className="footer-copyright">© ТОО «SATU.KZ Магазин», 2019</div>
-    </footer>
+        <div className="footer-copyright">© ТОО «SATU.KZ Магазин», 2019</div>
+      </footer>
     )
   }
 }

@@ -1,6 +1,6 @@
 var React = require('react');
 
-class Main extends React.Component {
+class Home extends React.Component {
   render() {
     return(
       <div className="main">
@@ -25,11 +25,11 @@ class Main extends React.Component {
         </nav>
         <div className="bottom-main">
           <div className="top-bottom-main">Популярные товары прямо сейчас</div>
-          <div className="container-bottom-main" id="containerBottomMain"></div>
+          <div className="container-bottom-main"></div>
         </div>
       </div>
     )
   }
 }
 
-module.exports = Main;
+module.exports = Home;
