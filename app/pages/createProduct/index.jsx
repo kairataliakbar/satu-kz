@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 class CreateProduct extends React.Component {
   render() {
@@ -120,4 +120,4 @@ class CreateProduct extends React.Component {
   }
 }
 
-module.exports = CreateProduct;
+export default CreateProduct;

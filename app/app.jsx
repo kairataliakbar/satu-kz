@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var AppContainer = require('./components/AppContainer.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppLayout from './components/AppLayout.jsx/index.jsx';
 
 ReactDOM.render(
-  <AppContainer/>,
+  <AppLayout />,
   document.getElementById('container')
 )

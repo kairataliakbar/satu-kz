@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 class Header extends React.Component {
   render() {
@@ -33,4 +33,4 @@ class Header extends React.Component {
   }
 }
 
-module.exports = Header;
+export default Header;
