@@ -1,6 +1,16 @@
 import React from 'react';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onSubmitRegisterModal = this.onSubmitRegisterModal.bind(this);
+  }
+
+  onSubmitRegisterModal() {
+    
+  }
+
   render() {
     return(
       <div className="header">
@@ -8,10 +18,10 @@ class Header extends React.Component {
         <div className="box-2"></div>
         <div className="box-3">
           <form>  
-            <input type="text" name="login" /> 
-            <input type="password" name="password" />
-            <input type="submit" name="entry" value="Войти" />
-            <input type="submit" name="register" value="Регистрация" />
+            <input type="text" name="login" size="16" /> 
+            <input type="password" name="password" size="16" />
+            <input type="submit" className="input-submit" name="entry" value="Войти" />
+            <input type="submit" className="input-submit" name="register" value="Регистрация" onSubmit={this.onSubmitRegisterModal} />
           </form>
           <div className="formExit">
             <nav className="profil-container">

@@ -8,12 +8,14 @@ import Basket from '../pages/basket/index.jsx';
 import PagePhone from '../pages/pagePhone/index.jsx';
 import PageComp from '../pages/productsDetales/index.jsx';
 import Menu from './Menu.jsx';
+import ModalWindowRegistr from '../components/ModalWindowRegistr.jsx';
 
 class AppLayout extends React.Component {
   render() {
     return(
       <div className="app-container">
         <Header />
+        <ModalWindowRegistr />
         <Menu />
         <Home />
         <Footer />

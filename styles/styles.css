@@ -375,12 +375,28 @@ footer {
   font-size: 13px;
 }
 
+.input-submit {
+  background-color: rgb(252, 166, 6);
+  border: 1px solid rgb(170, 112, 3);
+  color: black;
+  font-size: 16px;
+  font-family: serif;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+.input-submit:hover {
+  background-color: rgb(145, 97, 9);
+  color: white;
+  transition-duration: 100ms;
+  box-shadow: 0 0 10px black;
+}
+
 button {
   background-color: rgb(252, 166, 6);
   border: 1px solid rgb(170, 112, 3);
   color: black;
   font-size: 16px;
-  border-radius: 3px;
   font-family: serif;
   transition-duration: 100ms;
   cursor: pointer;
@@ -393,7 +409,7 @@ button:hover {
   box-shadow: 0 0 10px black;
 }
 
-#modalWin {
+.modal-Win {
   display: none;
   position: fixed;
   z-index: 3;
