@@ -72,4 +72,4 @@ class PagePhone extends React.Component {
   }
 }
 
-module.exports = PagePhpne;
+module.exports = PagePhone;
