@@ -409,8 +409,8 @@ button:hover {
   box-shadow: 0 0 10px black;
 }
 
-.modal-Win {
-  display: none;
+.modal-win {
+  display: block;
   position: fixed;
   z-index: 3;
   left: 0;
@@ -454,6 +454,8 @@ button:hover {
 .modal-container form button {
   margin-top: 10px;
 }
+
+
 
 /* Add Animation */
 @-webkit-keyframes slideIn {

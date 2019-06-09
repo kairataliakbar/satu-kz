@@ -1,14 +1,17 @@
 import React from 'react';
+import Modal from './Modal.jsx';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onSubmitRegisterModal = this.onSubmitRegisterModal.bind(this);
+    this.state = { showModal: false };
+
+    this.onClick = this.onClick.bind(this);
   }
 
-  onSubmitRegisterModal() {
-    
+  onClick() {
+    this.setState({ showModal: true });
   }
 
   render() {
@@ -17,11 +20,11 @@ class Header extends React.Component {
         <div className="box-1"><a href="#">SATU.KZ</a></div>
         <div className="box-2"></div>
         <div className="box-3">
-          <form>  
-            <input type="text" name="login" size="16" /> 
+          <form>
+            <input type="text" name="login" size="16" />
             <input type="password" name="password" size="16" />
-            <input type="submit" className="input-submit" name="entry" value="Войти" />
-            <input type="submit" className="input-submit" name="register" value="Регистрация" onSubmit={this.onSubmitRegisterModal} />
+            <input type="button" className="input-submit" name="entry" value="Войти" />
+            <input type="button" className="input-submit" name="register" value="Регистрация" onClick={this.onClick} />
           </form>
           <div className="formExit">
             <nav className="profil-container">
@@ -38,6 +41,18 @@ class Header extends React.Component {
             </nav>
           </div>
         </div>
+        {this.state.showModal && (
+          <Modal>
+            <div className="modal-container">
+              <h2>Авторизуйтесь</h2>
+              <div className="login-win"><input type="text" placeholder="Login"/></div>
+              <div className="email-win"><input type="email" placeholder="E-mail"/></div>
+              <div className="password-win"><input type="password" placeholder="Password"/></div>
+              <button>Регистрация</button>
+              <button className="close" onClick={() => this.setState({ showModal: false })}>Отмена</button>
+            </div>
+          </Modal>
+        )}
       </div>
     );
   }
