@@ -8,10 +8,17 @@ class Basket extends React.Component {
     this.state = { showModal: false };
 
     this.onClick = this.onClick.bind(this);
+    
+    this.exitModal = this.exitModal.bind(this);
   }
 
   onClick() {
     this.setState({ showModal: true });
+  }
+
+  exitModal(e) {
+    e.preventDefault();
+    this.setState({ showModal: false });
   }
 
   render() {
@@ -31,12 +38,12 @@ class Basket extends React.Component {
         </div>
         {this.state.showModal && (
           <Modal>
-            <div className="modal-win">
-              <div className="modal-basket-container">
+            <div className="modal-win" onClick={this.exitModal}>
+              <div className="modal-basket-container" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-basket-text">Вы действительно хотите удалить данное объявление с корзины?</div>
                 <div className="modal-basket-button">
-                  <button className="close-basket-button"><i class="far fa-times-circle"></i></button>
-                  <button className="delete-basket-button"><i class="far fa-check-circle"></i></button>
+                  <button className="close-basket-button"><i className="far fa-times-circle" onClick={this.exitModal}></i></button>
+                  <button className="delete-basket-button"><i className="far fa-check-circle"></i></button>
                 </div>
               </div>
             </div>

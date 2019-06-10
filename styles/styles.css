@@ -455,8 +455,6 @@ button:hover {
   margin-top: 10px;
 }
 
-
-
 /* Add Animation */
 @-webkit-keyframes slideIn {
   from {top: -300px; opacity: 0} 
@@ -837,23 +835,6 @@ button:hover {
 .button-delete-basket:hover {
   color: orange;
   text-shadow: 0px 0px 20px rgb(145, 100, 3);
-}
-
-.modal-win-basket {
-  display: none;
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  overflow: auto;
-  background-color: rgba(0,0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  -webkit-animation-name: fadeIn;
-  -webkit-animation-duration: 0.2s;
-  animation-name: fadeIn;
-  animation-duration: 0.2s
 }
 
 .modal-basket-container {

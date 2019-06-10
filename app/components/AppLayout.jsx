@@ -15,7 +15,7 @@ class AppLayout extends React.Component {
       <div className="app-container">
         <Header />
         <Menu />
-        <Basket />
+        <Home />
         <Footer />
       </div>
     )

@@ -8,10 +8,17 @@ class Header extends React.Component {
     this.state = { showModal: false };
 
     this.onClick = this.onClick.bind(this);
+
+    this.exiteModalWindow = this.exiteModalWindow.bind(this);
   }
 
   onClick() {
     this.setState({ showModal: true });
+  }
+
+  exiteModalWindow(e) {
+    e.preventDefault();
+    this.setState({ showModal: false });
   }
 
   render() {
@@ -43,13 +50,15 @@ class Header extends React.Component {
         </div>
         {this.state.showModal && (
           <Modal>
-            <div className="modal-container">
-              <h2>Авторизуйтесь</h2>
-              <div className="login-win"><input type="text" placeholder="Login"/></div>
-              <div className="email-win"><input type="email" placeholder="E-mail"/></div>
-              <div className="password-win"><input type="password" placeholder="Password"/></div>
-              <button>Регистрация</button>
-              <button className="close" onClick={() => this.setState({ showModal: false })}>Отмена</button>
+            <div className="modal-win" onClick={this.exiteModalWindow}>
+              <div className="modal-container" onClick={(e) => (e.stopPropagation())}>
+                <h2>Авторизуйтесь</h2>
+                <div className="login-win"><input type="text" placeholder="Login"/></div>
+                <div className="email-win"><input type="email" placeholder="E-mail"/></div>
+                <div className="password-win"><input type="password" placeholder="Password"/></div>
+                <button onClick={() => (alert("dasdasdas"))}>Регистрация</button>
+                <button className="close" onClick={this.exiteModalWindow}>Отмена</button>
+              </div>
             </div>
           </Modal>
         )}
