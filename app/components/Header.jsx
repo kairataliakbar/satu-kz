@@ -53,10 +53,10 @@ class Header extends React.Component {
             <div className="modal-win" onClick={this.exiteModalWindow}>
               <div className="modal-container" onClick={(e) => (e.stopPropagation())}>
                 <h2>Авторизуйтесь</h2>
-                <div className="login-win"><input type="text" placeholder="Login"/></div>
-                <div className="email-win"><input type="email" placeholder="E-mail"/></div>
-                <div className="password-win"><input type="password" placeholder="Password"/></div>
-                <button onClick={() => (alert("dasdasdas"))}>Регистрация</button>
+                <div className="input-win"><input type="text" placeholder="Login"/></div>
+                <div className="input-win"><input type="email" placeholder="E-mail"/></div>
+                <div className="input-win"><input type="password" placeholder="Password"/></div>
+                <button>Регистрация</button>
                 <button className="close" onClick={this.exiteModalWindow}>Отмена</button>
               </div>
             </div>

@@ -427,6 +427,8 @@ button:hover {
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   margin: 0 35% 0 35%;
@@ -476,34 +478,14 @@ button:hover {
   to {opacity: 1}
 }
 
-.login-win {
-  margin: 0px 5px 0px 5px;
+.input-win {
+  margin: 5px 0px 5px 0px;
 }
 
-.login-win input {
+.input-win input {
   text-align: center;
   height: 32px;
-  width: 250px;
-}
-
-.email-win {
-  margin: 10px 5px 0px 5px;
-}
-
-.email-win input {
-  text-align: center;
-  height: 32px;
-  width: 250px;
-}
-
-.password-win {
-  margin: 10px 5px 0px 5px;
-}
-
-.password-win input {
-  text-align: center;
-  height: 32px;
-  width: 250px;
+  width: 260px;
 }
 
 .top-main {
