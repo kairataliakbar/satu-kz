@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Modal from './Modal.jsx';
+import Modal from './Modal';
 
 class Header extends React.Component {
   constructor(props) {

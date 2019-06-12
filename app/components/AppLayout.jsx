@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Header from './Header.jsx';
-import Footer from './Footer.jsx';
-import Menu from './Menu.jsx';
+import Header from './Header';
+import Footer from './Footer';
+import Menu from './Menu';
 
-import Home from '../pages/home/index.jsx';
-import ProductDetales from '../pages/productsDetales/index.jsx';
-import CreateProduct from '../pages/createProduct/index.jsx';
-import Basket from '../pages/basket/index.jsx';
-import PagePhone from '../pages/pagePhone/index.jsx';
-import PageComp from '../pages/pageComp/index.jsx';
+import Home from '../pages/home/index';
+import ProductDetales from '../pages/productsDetales/index';
+import CreateProduct from '../pages/createProduct/index';
+import Basket from '../pages/basket/index';
+import PagePhone from '../pages/pagePhone/index';
+import PageComp from '../pages/pageComp/index';
 
 class AppLayout extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppLayout from './components/AppLayout.jsx';
+import AppLayout from './components/AppLayout';
 
 ReactDOM.render(
   <AppLayout />,
