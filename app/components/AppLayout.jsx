@@ -29,7 +29,7 @@ class AppLayout extends React.Component {
             <Route path="/products" component={Home} />
             <Route path="/help" component={() => <div>Help</div>} />
             <Route path="/news" component={() => <div>News</div>} />
-            <Route path="/contacts" component={() => <div>Contacts</div>} />
+            <Route path="/contacts" component={() => <div>Contact</div>} />
           </Switch>
           <Footer />
         </div>
