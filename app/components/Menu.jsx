@@ -8,8 +8,8 @@ function Menu() {
         <li><Link to="/"><i className="fas fa-home"></i>Главная</Link></li>
         <li><Link to="/products"><i className="fas fa-shopping-cart"></i>Продукты</Link>
           <ul>
-            <li><a href="#">Смартфоны</a></li>
-            <li><a href="#">Компьютеры</a></li>
+            <li><Link to="/pagePhone">Смартфоны</Link></li>
+            <li><Link to="/pageComp">Компьютеры</Link></li>
             <li><a href="#">ТВ, аудио и видио</a></li>
             <li><a href="#">Бытовая техника</a></li>
             <li><a href="#">Все для геймеров</a></li>

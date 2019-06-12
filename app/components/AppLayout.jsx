@@ -10,7 +10,7 @@ import ProductDetales from '../pages/productsDetales/index.jsx';
 import CreateProduct from '../pages/createProduct/index.jsx';
 import Basket from '../pages/basket/index.jsx';
 import PagePhone from '../pages/pagePhone/index.jsx';
-import PageComp from '../pages/productsDetales/index.jsx';
+import PageComp from '../pages/pageComp/index.jsx';
 
 class AppLayout extends React.Component {
   render() {
