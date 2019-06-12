@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Modal from './Modal.jsx';
 
 class Header extends React.Component {
@@ -24,7 +26,7 @@ class Header extends React.Component {
   render() {
     return(
       <div className="header">
-        <div className="box-1"><a href="#">SATU.KZ</a></div>
+        <div className="box-1"><Link to="/">SATU.KZ</Link></div>
         <div className="box-2"></div>
         <div className="box-3">
           <form>
