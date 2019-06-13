@@ -7,11 +7,13 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { showModal: false };
+    this.state = { showModal: false, userId: '', userPassword: ''};
 
     this.onClick = this.onClick.bind(this);
 
     this.exiteModalWindow = this.exiteModalWindow.bind(this);
+
+    this.entryInWebsite = this.entryInWebsite.bind(this);
   }
 
   onClick() {
@@ -23,6 +25,10 @@ class Header extends React.Component {
     this.setState({ showModal: false });
   }
 
+  entryInWebsite(e) {
+
+  }
+
   render() {
     return(
       <div className="header">
@@ -32,7 +38,7 @@ class Header extends React.Component {
           <form>
             <input type="text" name="login" size="16" />
             <input type="password" name="password" size="16" />
-            <input type="button" className="input-submit" name="entry" value="Войти" />
+            <input type="button" className="input-submit" name="entry" value="Войти" onClick={this.entryInWebsite} />
             <input type="button" className="input-submit" name="register" value="Регистрация" onClick={this.onClick} />
           </form>
           <div className="formExit">

@@ -24,17 +24,17 @@ class AppLayout extends React.Component {
             <Route path="/basket" component={Basket} />
             <Route path="/productDetales" component={ProductDetales} />
             <Route path="/createProduct" component={CreateProduct} />
-            <Route path="/pagePhone" component={PagePhone} />
-            <Route path="/pageComp" component={PageComp} />
-            <Route path="/products" component={Home} />
+            <Route path="/products/pagePhone" component={PagePhone} />
+            <Route path="/products/pageComp" component={PageComp} />
+            <Route exact path="/products" component={Home} />
             <Route path="/help" component={() => <div>Help</div>} />
             <Route path="/news" component={() => <div>News</div>} />
             <Route path="/contacts" component={() => <div>Contact</div>} />
-            <Route path="/tvAudioVideo" component={() => <div>Tv, Audio and Video</div>} />
-            <Route path="/appliances" component={() => <div>Appliances</div>} />
-            <Route path="/allForGamers" component={() => <div>All for Gamers</div>} />
-            <Route path="/house" component={() => <div>House</div>} />
-            <Route path="/autoProducts" component={() => <div>Auto products</div>} />
+            <Route path="/products/tvAudioVideo" component={() => <div>Tv, Audio and Video</div>} />
+            <Route path="/products/appliances" component={() => <div>Appliances</div>} />
+            <Route path="/products/allForGamers" component={() => <div>All for Gamers</div>} />
+            <Route path="/products/house" component={() => <div>House</div>} />
+            <Route path="/products/autoProducts" component={() => <div>Auto products</div>} />
           </Switch>
           <Footer />
         </div>

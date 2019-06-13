@@ -12,13 +12,13 @@ class Footer extends React.Component {
           </div>
           <div className="f-box-2">
             <div className="footer-forvord-text">Каталог товаров</div>
-            <div className="footer-text"><Link to="/pagePhone">Смартфоны</Link></div>
-            <div className="footer-text"><Link to="/pageComp">Компьютеры</Link></div>
-            <div className="footer-text"><Link to="/tvAudioVideo">ТВ, аудио и видио</Link></div>
-            <div className="footer-text"><Link to="/autoProducts">Автотовары</Link></div>
-            <div className="footer-text"><Link to="/appliances">Бытовая техника</Link></div>
-            <div className="footer-text"><Link to="allForGamers">Все для геймеров</Link></div>
-            <div className="footer-text"><Link to="/house">Дом</Link></div>
+            <div className="footer-text"><Link to="/products/pagePhone">Смартфоны</Link></div>
+            <div className="footer-text"><Link to="/products/pageComp">Компьютеры</Link></div>
+            <div className="footer-text"><Link to="/products/tvAudioVideo">ТВ, аудио и видио</Link></div>
+            <div className="footer-text"><Link to="/products/autoProducts">Автотовары</Link></div>
+            <div className="footer-text"><Link to="/products/appliances">Бытовая техника</Link></div>
+            <div className="footer-text"><Link to="/products/allForGamers">Все для геймеров</Link></div>
+            <div className="footer-text"><Link to="/products/house">Дом</Link></div>
           </div>
           <div className="f-box-3">
             <div className="footer-forvord-text">Партнерам</div>
