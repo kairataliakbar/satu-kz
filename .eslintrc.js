@@ -4,7 +4,6 @@ module.exports = {
     es6: true
   },
   extends: "airbnb",
-  extensions: [".js", ".jsx"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
