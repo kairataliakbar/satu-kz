@@ -10,11 +10,11 @@ const Menu = () => {
           <ul>
             <li><Link to="/pagePhone">Смартфоны</Link></li>
             <li><Link to="/pageComp">Компьютеры</Link></li>
-            <li><a href="#">ТВ, аудио и видио</a></li>
-            <li><a href="#">Бытовая техника</a></li>
-            <li><a href="#">Все для геймеров</a></li>
-            <li><a href="#">Дом</a></li>
-            <li><a href="#">Автотовары и транспорт</a></li>
+            <li><Link to="/tvAudioVideo">ТВ, аудио и видио</Link></li>
+            <li><Link to="/appliances">Бытовая техника</Link></li>
+            <li><Link to="allForGamers">Все для геймеров</Link></li>
+            <li><Link to="/house">Дом</Link></li>
+            <li><Link to="/autoProducts">Автотовары и транспорт</Link></li>
           </ul>
         </li>
         <li><Link to="/help"><i className="fas fa-hands-helping"></i>Помощь</Link></li>

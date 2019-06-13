@@ -30,6 +30,11 @@ class AppLayout extends React.Component {
             <Route path="/help" component={() => <div>Help</div>} />
             <Route path="/news" component={() => <div>News</div>} />
             <Route path="/contacts" component={() => <div>Contact</div>} />
+            <Route path="/tvAudioVideo" component={() => <div>Tv, Audio and Video</div>} />
+            <Route path="/appliances" component={() => <div>Appliances</div>} />
+            <Route path="/allForGamers" component={() => <div>All for Gamers</div>} />
+            <Route path="/house" component={() => <div>House</div>} />
+            <Route path="/autoProducts" component={() => <div>Auto products</div>} />
           </Switch>
           <Footer />
         </div>

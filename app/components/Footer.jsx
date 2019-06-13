@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
   render() {
@@ -11,13 +12,13 @@ class Footer extends React.Component {
           </div>
           <div className="f-box-2">
             <div className="footer-forvord-text">Каталог товаров</div>
-            <div className="footer-text"><a href="#">Смартфоны</a></div>
-            <div className="footer-text"><a href="#">Компьютеры</a></div>
-            <div className="footer-text"><a href="#">ТВ, аудио и видио</a></div>
-            <div className="footer-text"><a href="#">Автотовары</a></div>
-            <div className="footer-text"><a href="#">Бытовая техника</a></div>
-            <div className="footer-text"><a href="#">Техника для кухни</a></div>
-            <div className="footer-text"><a href="#">Дом</a></div>
+            <div className="footer-text"><Link to="/pagePhone">Смартфоны</Link></div>
+            <div className="footer-text"><Link to="/pageComp">Компьютеры</Link></div>
+            <div className="footer-text"><Link to="/tvAudioVideo">ТВ, аудио и видио</Link></div>
+            <div className="footer-text"><Link to="/autoProducts">Автотовары</Link></div>
+            <div className="footer-text"><Link to="/appliances">Бытовая техника</Link></div>
+            <div className="footer-text"><Link to="allForGamers">Все для геймеров</Link></div>
+            <div className="footer-text"><Link to="/house">Дом</Link></div>
           </div>
           <div className="f-box-3">
             <div className="footer-forvord-text">Партнерам</div>
@@ -28,7 +29,8 @@ class Footer extends React.Component {
           </div>
           <div className="f-box-4">
             <div className="footer-forvord-text">Помощь и контакты</div>
-            <div className="footer-text"><a href="#">help_shop@satu.kz</a></div>
+            <div className="footer-text"><Link to="/help">help_shop@satu.kz</Link></div>
+            <div className="footer-text"><Link to="/contacts">contacts_shop@satu.kz</Link></div>
           </div>
         </div>
         <div className="footer-copyright">© ТОО «SATU.KZ Магазин», 2019</div>
