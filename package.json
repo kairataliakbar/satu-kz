@@ -8,7 +8,7 @@
     "build": "webpack",
     "lint": "eslint --debug src/",
     "lint:write": "eslint --debug src/ --fix",
-    "prettier": "prettier --write src/**/*.{js,jsx}"
+    "prettier": "prettier --write"
   },
   "husky": {
     "hooks": {

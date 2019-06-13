@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Modal = ({ children }) => {
-  return (
-    <div className="modal-win">
-      {children}
-    </div>
-  );
-}
+  return <div className="modal-win">{children}</div>;
+};
 
 export default Modal;
