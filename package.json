@@ -7,8 +7,8 @@
     "dev": "webpack-dev-server --hot --open",
     "build": "webpack",
     "lint": "eslint --debug src/",
-    "lint:write": "eslint src/ --fix",
-    "prettier": "prettier --write src/**/*"
+    "lint:write": "eslint --debug src/ --fix",
+    "prettier": "prettier --write src/**/*{js,jsx}"
   },
   "husky": {
     "hooks": {
@@ -17,8 +17,7 @@
   },
   "lint-staged": {
     "*.(js,jsx)": [
-      "pretty-quick --staged",
-      "lint:write",
+      "npm run lint:write",
       "git add"
     ]
   },

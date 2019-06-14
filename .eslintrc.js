@@ -12,5 +12,7 @@ module.exports = {
     sourceType: "module"
   },
   plugins: ["prettier", "react"],
-  rules: {}
+  rules: {
+    "prettier/prettier": "error"
+  }
 };
