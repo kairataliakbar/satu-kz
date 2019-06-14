@@ -16,25 +16,25 @@ const Menu = () => {
           </Link>
           <ul>
             <li>
-              <Link to="/pagePhone">Смартфоны</Link>
+              <Link to="/products/page-phone">Смартфоны</Link>
             </li>
             <li>
-              <Link to="/pageComp">Компьютеры</Link>
+              <Link to="/products/page-comp">Компьютеры</Link>
             </li>
             <li>
-              <a href="#">ТВ, аудио и видио</a>
+              <Link to="/products/tv-audio-video">ТВ, аудио и видио</Link>
             </li>
             <li>
-              <a href="#">Бытовая техника</a>
+              <Link to="/products/appliances">Бытовая техника</Link>
             </li>
             <li>
-              <a href="#">Все для геймеров</a>
+              <Link to="/products/all-for-gamers">Все для геймеров</Link>
             </li>
             <li>
-              <a href="#">Дом</a>
+              <Link to="/products/house">Дом</Link>
             </li>
             <li>
-              <a href="#">Автотовары и транспорт</a>
+              <Link to="/auto-products">Автотовары и транспорт</Link>
             </li>
           </ul>
         </li>

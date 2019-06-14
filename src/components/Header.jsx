@@ -1,26 +1,33 @@
+/* eslint-disable react/no-unused-state */
+/* eslint-disable array-callback-return */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import { Link } from "react-router-dom";
 
 import Modal from "./Modal";
 
-const users = [
-  {name: "admin", password: "qwe123" }
-];
+const users = [{ name: "admin", password: "qwe123" }];
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { showModal: false, adminEntry: false, userEntry: false, userId: '', userPassword: '' };
+    this.state = {
+      showModal: false,
+      adminEntry: false,
+      userEntry: false,
+      userId: "",
+      userPassword: ""
+    };
 
     this.onClick = this.onClick.bind(this);
-
     this.exiteModalWindow = this.exiteModalWindow.bind(this);
-
     this.entryInWebsite = this.entryInWebsite.bind(this);
-
     this.userId = this.userId.bind(this);
-
     this.userPassword = this.userPassword.bind(this);
   }
 
@@ -42,12 +49,19 @@ class Header extends React.Component {
   }
 
   entryInWebsite() {
-    users.map((user) => {
-      if(user.name === this.state.userId || user.password === this.state.userPassword) {
-        if("admin" === this.state.userId) {
+    users.map(user => {
+      if (
+        user.name === this.state.userId ||
+        user.password === this.state.userPassword
+      ) {
+        if (this.state.userId === "admin") {
           this.setState({ adminEntry: true });
-        } else { this.setState({ userEntry: true }) }
-      } else { alert("Неверный логин или пароль"); }
+        } else {
+          this.setState({ userEntry: true });
+        }
+      } else {
+        alert("Неверный логин или пароль");
+      }
     });
   }
 
@@ -100,7 +114,8 @@ class Header extends React.Component {
                       </li>
                       <li>
                         <a href="#">
-                          <i className="fas fa-cart-plus"></i>Добавить объявление
+                          <i className="fas fa-cart-plus"></i>
+                          Добавить объявление
                         </a>
                       </li>
                       <li>
