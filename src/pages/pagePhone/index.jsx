@@ -1,8 +1,8 @@
-var React = require('react');
+var React = require("react");
 
 class PagePhone extends React.Component {
   render() {
-    return(
+    return (
       <div className="main">
         <div className="bottom-main">
           <div className="top-bottom-main">Смартфоны</div>
@@ -11,11 +11,32 @@ class PagePhone extends React.Component {
               <div className="title-filter">ФИЛЬТРЫ</div>
               <form>
                 <p className="title-filter">Цена</p>
-                <p><span>от - </span><input type="number" min="1" max="1000000" value="1" className="price-product-filter" /></p>
-                <p><span>до - </span><input type="number" min="1" max="1000000" value="1000000" className="price-product-filter" /></p>
+                <p>
+                  <span>от - </span>
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000000"
+                    value="1"
+                    className="price-product-filter"
+                  />
+                </p>
+                <p>
+                  <span>до - </span>
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000000"
+                    value="1000000"
+                    className="price-product-filter"
+                  />
+                </p>
                 <p className="title-filter">Производитель</p>
                 <p>
-                  <select name="productManufacturerFilter" className="product-filter">
+                  <select
+                    name="productManufacturerFilter"
+                    className="product-filter"
+                  >
                     <option>Mодель</option>
                     <option value="apple">Apple</option>
                     <option value="samsung">Samsung</option>
@@ -68,7 +89,7 @@ class PagePhone extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

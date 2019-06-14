@@ -1,20 +1,20 @@
-var path = require('path');
- 
+var path = require("path");
+
 module.exports = {
-  entry: "./app/app.jsx",
-  output:{
-    path: path.resolve(__dirname, './public'),   
-    publicPath: '/public/',
-    filename: "bundle.js"   
+  entry: "./src/app.jsx",
+  output: {
+    path: path.resolve(__dirname, "./public"),
+    publicPath: "/public/",
+    filename: "bundle.js"
   },
-  module:{
-    rules:[  
+  module: {
+    rules: [
       {
-        test: /\.jsx?$/, 
-        exclude: /(node_modules)/,  
-        loader: "babel-loader",   
-        options:{
-            presets:["@babel/preset-env", "@babel/preset-react"]
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"]
         }
       }
     ]
@@ -22,4 +22,4 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"]
   }
-}
+};

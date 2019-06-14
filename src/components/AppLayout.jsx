@@ -1,20 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Header from './Header';
-import Footer from './Footer';
-import Menu from './Menu';
+import Header from "./Header";
+import Footer from "./Footer";
+import Menu from "./Menu";
 
-import Home from '../pages/home/index';
-import ProductDetales from '../pages/productsDetales/index';
-import CreateProduct from '../pages/createProduct/index';
-import Basket from '../pages/basket/index';
-import PagePhone from '../pages/pagePhone/index';
-import PageComp from '../pages/pageComp/index';
+import Home from "../pages/home/index";
+import ProductDetales from "../pages/productsDetales/index";
+import CreateProduct from "../pages/createProduct/index";
+import Basket from "../pages/basket/index";
+import PagePhone from "../pages/pagePhone/index";
+import PageComp from "../pages/pageComp/index";
 
 class AppLayout extends React.Component {
   render() {
-    return(
+    return (
       <Router>
         <div>
           <Header />
@@ -34,7 +34,7 @@ class AppLayout extends React.Component {
           <Footer />
         </div>
       </Router>
-    )
+    );
   }
 }
 

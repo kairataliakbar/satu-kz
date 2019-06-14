@@ -1,5 +1,5 @@
-import React from 'react';
-import Modal from '../../components/Modal.jsx';
+import React from "react";
+import Modal from "../../components/Modal.jsx.js";
 
 class Basket extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class Basket extends React.Component {
     this.state = { showModal: false };
 
     this.onClick = this.onClick.bind(this);
-    
+
     this.exitModal = this.exitModal.bind(this);
   }
 
@@ -22,11 +22,12 @@ class Basket extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className="main">
-        <div className="top-bottom-main" onClick={this.onClick}>Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
-        <div className="basket-container">
+        <div className="top-bottom-main" onClick={this.onClick}>
+          Корзина - ОФОРМЛЕНИЕ ЗАКАЗА
         </div>
+        <div className="basket-container"></div>
         <div className="basket-container-total">
           <div className="container-total-prices">
             <div className="container-total">ИТОГО</div>
@@ -39,18 +40,30 @@ class Basket extends React.Component {
         {this.state.showModal && (
           <Modal>
             <div className="modal-win" onClick={this.exitModal}>
-              <div className="modal-basket-container" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-basket-text">Вы действительно хотите удалить данное объявление с корзины?</div>
+              <div
+                className="modal-basket-container"
+                onClick={e => e.stopPropagation()}
+              >
+                <div className="modal-basket-text">
+                  Вы действительно хотите удалить данное объявление с корзины?
+                </div>
                 <div className="modal-basket-button">
-                  <button className="close-basket-button"><i className="far fa-times-circle" onClick={this.exitModal}></i></button>
-                  <button className="delete-basket-button"><i className="far fa-check-circle"></i></button>
+                  <button className="close-basket-button">
+                    <i
+                      className="far fa-times-circle"
+                      onClick={this.exitModal}
+                    ></i>
+                  </button>
+                  <button className="delete-basket-button">
+                    <i className="far fa-check-circle"></i>
+                  </button>
                 </div>
               </div>
             </div>
           </Modal>
         )}
       </div>
-    )
+    );
   }
 }
 
