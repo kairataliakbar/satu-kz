@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true
   },
-  extends: "airbnb",
+  extends: ["airbnb", "prettier", "prettier/react"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -11,6 +11,6 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["react"],
+  plugins: ["prettier"],
   rules: {}
 };
