@@ -1,5 +1,10 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable import/no-unresolved */
 import React from "react";
-import Modal from "../../components/Modal.jsx.js";
+import Modal from "../../components/Modal";
 
 class Basket extends React.Component {
   constructor(props) {

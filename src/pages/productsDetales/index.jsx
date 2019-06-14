@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React from "react";
 
 const ProductDetales = () => {
@@ -27,4 +28,4 @@ const ProductDetales = () => {
   );
 };
 
-module.exports = ProductDetales;
+export default ProductDetales;
