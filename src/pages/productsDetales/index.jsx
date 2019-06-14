@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 class ProductDetales extends React.Component {
   render() {
