@@ -20,8 +20,8 @@ class Header extends React.Component {
       showModal: false,
       adminEntry: false,
       userEntry: false,
-      userId: "",
-      userPassword: ""
+      userId: " ",
+      userPassword: " "
     };
 
     this.onClick = this.onClick.bind(this);
@@ -40,16 +40,17 @@ class Header extends React.Component {
     this.setState({ showModal: false });
   }
 
-  userId(e) {
-    this.setState({ userId: e.target.value });
+  userId(event) {
+    this.setState({ userId: event.target.value });
   }
 
-  userPassword(e) {
-    this.setState({ userPassword: e.target.value });
+  userPassword(event) {
+    this.setState({ userPassword: event.target.value });
   }
 
   entryInWebsite() {
     users.map(user => {
+      console.log(`${this.state.userId}+${this.state.userPassword}`);
       if (
         user.name === this.state.userId ||
         user.password === this.state.userPassword
@@ -75,13 +76,24 @@ class Header extends React.Component {
         <div className="box-3">
           {!this.state.userEntry && (
             <form>
-              <input type="text" name="login" size="16" />
-              <input type="password" name="password" size="16" />
+              <input
+                type="text"
+                name="login"
+                size="16"
+                onChange={this.userId}
+              />
+              <input
+                type="password"
+                name="password"
+                size="16"
+                onChange={this.userPassword}
+              />
               <input
                 type="button"
                 className="input-submit"
                 name="entry"
                 value="Войти"
+                onClick={this.entryInWebsite}
               />
               <input
                 type="button"

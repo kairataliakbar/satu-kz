@@ -52,6 +52,8 @@ const Footer = () => {
           <div className="footer-forvord-text">Помощь и контакты</div>
           <div className="footer-text">
             <Link to="/help">help_shop@satu.kz</Link>
+          </div>
+          <div className="footer-text">
             <Link to="/contacts">contacts_shop@satu.kz</Link>
           </div>
         </div>
