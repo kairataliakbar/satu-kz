@@ -311,7 +311,7 @@ li {
   box-shadow: 0 0 10px rgb(182, 127, 24);
   border: 2px solid orange;
   opacity: 0.75;
-  filter:alpha(opacity=50);
+  filter: alpha(opacity=50);
   transition-duration: 250ms;
 }
 
