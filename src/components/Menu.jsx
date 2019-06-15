@@ -28,13 +28,13 @@ const Menu = () => {
               <Link to="/products/appliances">Бытовая техника</Link>
             </li>
             <li>
-              <Link to="/products/all-for-gamers">Все для геймеров</Link>
+              <Link to="/products/gamers">Все для геймеров</Link>
             </li>
             <li>
               <Link to="/products/house">Дом</Link>
             </li>
             <li>
-              <Link to="/auto-products">Автотовары и транспорт</Link>
+              <Link to="/products/auto-products">Автотовары и транспорт</Link>
             </li>
           </ul>
         </li>

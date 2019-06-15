@@ -23,7 +23,7 @@ const Footer = () => {
             <Link to="/products/tv-audio-video">ТВ, аудио и видио</Link>
           </div>
           <div className="footer-text">
-            <Link to="/products/all-for-gamers">Все для геймеров</Link>
+            <Link to="/products/gamers">Все для геймеров</Link>
           </div>
           <div className="footer-text">
             <Link to="/products/appliances">Бытовая техника</Link>
@@ -32,7 +32,7 @@ const Footer = () => {
             <Link to="/products/house">Дом</Link>
           </div>
           <div className="footer-text">
-            <Link to="/auto-products">Автотовары и транспорт</Link>
+            <Link to="/products/auto-products">Автотовары и транспорт</Link>
           </div>
         </div>
         <div className="f-box-3">

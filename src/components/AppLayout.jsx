@@ -38,7 +38,7 @@ const AppLayout = () => {
             component={() => <div>Appliances</div>}
           />
           <Route
-            path="/products/all-for-gamers"
+            path="/products/gamers"
             component={() => <div>All for Gamers</div>}
           />
           <Route path="/products/house" component={() => <div>House</div>} />
