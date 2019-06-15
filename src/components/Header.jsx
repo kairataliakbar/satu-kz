@@ -6,10 +6,12 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { showModal: false };
+    this.state = { showModal: false, userName: "", userPassword: "" };
 
     this.modalOpen = this.modalOpen.bind(this);
     this.modalClose = this.modalClose.bind(this);
+    this.userName = this.userName.bind(this);
+    this.userPassword = this.userPassword.bind(this);
   }
 
   modalOpen() {
@@ -18,6 +20,18 @@ class Header extends React.Component {
 
   modalClose() {
     this.setState({ showModal: false });
+  }
+
+  userName(e) {
+    this.setState({ userName: e.target.value });
+    const { userName } = this.state;
+    console.log(userName);
+  }
+
+  userPassword(e) {
+    this.setState({ userPassword: e.target.value });
+    const { userPassword } = this.state;
+    console.log(userPassword);
   }
 
   render() {
@@ -30,8 +44,18 @@ class Header extends React.Component {
         <div className="box-2"></div>
         <div className="box-3">
           <form>
-            <input type="text" name="login" size="16" />
-            <input type="password" name="password" size="16" />
+            <input
+              type="text"
+              name="login"
+              size="16"
+              onChange={this.userName}
+            />
+            <input
+              type="password"
+              name="password"
+              size="16"
+              onChange={this.userPassword}
+            />
             <input
               type="button"
               className="input-submit"
