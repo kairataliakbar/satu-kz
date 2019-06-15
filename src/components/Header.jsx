@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import Modal from "./Modal";
+import Modal from "react-responsive-modal";
 
 class Header extends React.Component {
   constructor(props) {
@@ -9,21 +8,20 @@ class Header extends React.Component {
 
     this.state = { showModal: false };
 
-    this.onClick = this.onClick.bind(this);
-
-    this.exiteModalWindow = this.exiteModalWindow.bind(this);
+    this.modalOpen = this.modalOpen.bind(this);
+    this.modalClose = this.modalClose.bind(this);
   }
 
-  onClick() {
+  modalOpen() {
     this.setState({ showModal: true });
   }
 
-  exiteModalWindow(e) {
-    e.preventDefault();
+  modalClose() {
     this.setState({ showModal: false });
   }
 
   render() {
+    const { showModal } = this.state;
     return (
       <div className="header">
         <div className="box-1">
@@ -45,37 +43,38 @@ class Header extends React.Component {
               className="input-submit"
               name="register"
               value="Регистрация"
-              onClick={this.onClick}
+              onClick={this.modalOpen}
             />
           </form>
           <div className="formExit">
             <nav className="profil-container">
               <ul>
                 <li>
-                  <a href="#">
+                  <Link to="/">
                     <i className="fas fa-user-alt"></i>
                     <span></span>
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href="#">
+                      <Link to="/">
                         <i className="fas fa-user-circle"></i>Личные кабинет
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">
+                      <Link to="/">
                         <i className="fas fa-shopping-basket"></i>Корзина
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">
-                        <i className="fas fa-cart-plus"></i>Добавить объявление
-                      </a>
+                      <Link to="/">
+                        <i className="fas fa-cart-plus"></i>
+                        Добавить объявление
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">
+                      <Link to="/">
                         <i className="fas fa-sign-out-alt"></i>Выход
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
@@ -83,31 +82,15 @@ class Header extends React.Component {
             </nav>
           </div>
         </div>
-        {this.state.showModal && (
-          <Modal>
-            <div className="modal-win" onClick={this.exiteModalWindow}>
-              <div
-                className="modal-container"
-                onClick={e => e.stopPropagation()}
-              >
-                <h2>Авторизуйтесь</h2>
-                <div className="input-win">
-                  <input type="text" placeholder="Login" />
-                </div>
-                <div className="input-win">
-                  <input type="email" placeholder="E-mail" />
-                </div>
-                <div className="input-win">
-                  <input type="password" placeholder="Password" />
-                </div>
-                <button>Регистрация</button>
-                <button className="close" onClick={this.exiteModalWindow}>
-                  Отмена
-                </button>
-              </div>
-            </div>
-          </Modal>
-        )}
+        <Modal open={showModal} onClose={this.modalClose}>
+          <div className="modal-class">
+            <h2>Авторизуйтесь</h2>
+            <input type="text" placeholder="Login" />
+            <input type="email" placeholder="E-mail" />
+            <input type="password" placeholder="Password" />
+            <button type="button">Регистрация</button>
+          </div>
+        </Modal>
       </div>
     );
   }

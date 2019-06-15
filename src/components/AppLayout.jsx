@@ -12,30 +12,45 @@ import Basket from "../pages/basket/index";
 import PagePhone from "../pages/pagePhone/index";
 import PageComp from "../pages/pageComp/index";
 
-class AppLayout extends React.Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <Header />
-          <Menu />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/basket" component={Basket} />
-            <Route path="/productDetales" component={ProductDetales} />
-            <Route path="/createProduct" component={CreateProduct} />
-            <Route path="/pagePhone" component={PagePhone} />
-            <Route path="/pageComp" component={PageComp} />
-            <Route path="/products" component={Home} />
-            <Route path="/help" component={() => <div>Help</div>} />
-            <Route path="/news" component={() => <div>News</div>} />
-            <Route path="/contacts" component={() => <div>Contact</div>} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
-}
+const AppLayout = () => {
+  return (
+    <Router>
+      <div>
+        <Header />
+        <Menu />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/basket" component={Basket} />
+          <Route path="/product-detales" component={ProductDetales} />
+          <Route path="/create-product" component={CreateProduct} />
+          <Route path="/products/page-phone" component={PagePhone} />
+          <Route path="/products/page-comp" component={PageComp} />
+          <Route exact path="/products" component={Home} />
+          <Route path="/help" component={() => <div>Help</div>} />
+          <Route path="/news" component={() => <div>News</div>} />
+          <Route path="/contacts" component={() => <div>Contact</div>} />
+          <Route
+            path="/products/tv-audio-video"
+            component={() => <div>Tv, Audio and Video</div>}
+          />
+          <Route
+            path="/products/appliances"
+            component={() => <div>Appliances</div>}
+          />
+          <Route
+            path="/products/gamers"
+            component={() => <div>All for Gamers</div>}
+          />
+          <Route path="/products/house" component={() => <div>House</div>} />
+          <Route
+            path="/products/auto-products"
+            component={() => <div>Auto products</div>}
+          />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
 export default AppLayout;

@@ -10,16 +10,16 @@ const ProductDetales = () => {
       </div>
       <div className="right-container-product">
         <div className="button-admin-product">
-          <button>Удалить</button>
-          <button>Редактировать</button>
+          <button type="button">Удалить</button>
+          <button type="button">Редактировать</button>
         </div>
         <div className="headline-conatiner"></div>
         <div className="prices-product">
           <div className="prices-product-container"></div>
         </div>
         <div className="bottom-container-product">
-          <button>В корзину</button>
-          <button>Купить в кредит</button>
+          <button type="button">В корзину</button>
+          <button type="button">Купить в кредит</button>
         </div>
         <div className="text-area-container"></div>
       </div>
@@ -27,4 +27,4 @@ const ProductDetales = () => {
   );
 };
 
-module.exports = ProductDetales;
+export default ProductDetales;
