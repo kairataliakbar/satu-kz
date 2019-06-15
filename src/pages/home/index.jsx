@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React from "react";
 
 const Home = () => {
@@ -16,8 +15,8 @@ const Home = () => {
             </div>
             <div className="forvord-container-button">
               <div className="summa">235 890 ₸</div>
-              <button>В корзину</button>
-              <button>Купить в кредит</button>
+              <button type="button">В корзину</button>
+              <button type="button">Купить в кредит</button>
             </div>
           </div>
         </div>

@@ -21,8 +21,8 @@ const AppLayout = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/basket" component={Basket} />
-          <Route path="/productDetales" component={ProductDetales} />
-          <Route path="/createProduct" component={CreateProduct} />
+          <Route path="/product-detales" component={ProductDetales} />
+          <Route path="/create-product" component={CreateProduct} />
           <Route path="/products/page-phone" component={PagePhone} />
           <Route path="/products/page-comp" component={PageComp} />
           <Route exact path="/products" component={Home} />
