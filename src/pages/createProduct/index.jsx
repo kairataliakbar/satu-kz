@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/button-has-type */
 import React from "react";
 
 const CreateProduct = () => {
@@ -127,15 +124,13 @@ const CreateProduct = () => {
                   className="add-img-file"
                   accept="image/jpeg,image/gif,image/png"
                 />
-                <img />
+                <img alt="file" />
               </div>
             </div>
           </div>
           <div className="button-container">
-            <button>ОПУБЛИКОВАТЬ</button>
-            <button>
-              <a href="#">ОТМЕНА</a>
-            </button>
+            <button type="button">ОПУБЛИКОВАТЬ</button>
+            <button type="button">ОТМЕНА</button>
           </div>
         </form>
       </div>

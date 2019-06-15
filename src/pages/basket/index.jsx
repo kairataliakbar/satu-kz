@@ -1,10 +1,5 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable import/no-unresolved */
 import React from "react";
-import Modal from "../../components/Modal";
+import Modal from "react-responsive-modal";
 
 class Basket extends React.Component {
   constructor(props) {
@@ -27,11 +22,10 @@ class Basket extends React.Component {
   }
 
   render() {
+    const { showModal } = this.state;
     return (
       <div className="main">
-        <div className="top-bottom-main" onClick={this.onClick}>
-          Корзина - ОФОРМЛЕНИЕ ЗАКАЗА
-        </div>
+        <div className="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
         <div className="basket-container"></div>
         <div className="basket-container-total">
           <div className="container-total-prices">
@@ -39,34 +33,26 @@ class Basket extends React.Component {
             <div className="total-prices"></div>
           </div>
           <div className="total-prices-button">
-            <button></button>
+            <button type="button" onClick={this.onClick}></button>
           </div>
         </div>
-        {this.state.showModal && (
-          <Modal>
-            <div className="modal-win" onClick={this.exitModal}>
-              <div
-                className="modal-basket-container"
-                onClick={e => e.stopPropagation()}
-              >
-                <div className="modal-basket-text">
-                  Вы действительно хотите удалить данное объявление с корзины?
-                </div>
-                <div className="modal-basket-button">
-                  <button className="close-basket-button">
-                    <i
-                      className="far fa-times-circle"
-                      onClick={this.exitModal}
-                    ></i>
-                  </button>
-                  <button className="delete-basket-button">
-                    <i className="far fa-check-circle"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Modal>
-        )}
+        <Modal open={showModal} onClose={this.exitModal}>
+          <div className="modal-basket-text">
+            Вы действительно хотите удалить данное объявление с корзины?
+          </div>
+          <div className="modal-basket-button">
+            <button
+              type="button"
+              className="close-basket-button"
+              onClick={this.exitModal}
+            >
+              <i className="far fa-times-circle"></i>
+            </button>
+            <button type="button" className="delete-basket-button">
+              <i className="far fa-check-circle"></i>
+            </button>
+          </div>
+        </Modal>
       </div>
     );
   }

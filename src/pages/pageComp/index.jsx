@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React from "react";
 
 const PageComp = () => {
@@ -88,7 +87,7 @@ const PageComp = () => {
                   <option value="2019">2019</option>
                 </select>
               </p>
-              <button>Покозать</button>
+              <button type="button">Покозать</button>
             </form>
           </div>
           <div className="container-bottom-main"></div>

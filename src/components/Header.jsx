@@ -1,72 +1,27 @@
-/* eslint-disable react/no-unused-state */
-/* eslint-disable array-callback-return */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import { Link } from "react-router-dom";
-
-import Modal from "./Modal";
-
-const users = [{ name: "admin", password: "qwe123" }];
+import Modal from "react-responsive-modal";
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      showModal: false,
-      adminEntry: false,
-      userEntry: false,
-      userId: " ",
-      userPassword: " "
-    };
+    this.state = { showModal: false };
 
-    this.onClick = this.onClick.bind(this);
-    this.exiteModalWindow = this.exiteModalWindow.bind(this);
-    this.entryInWebsite = this.entryInWebsite.bind(this);
-    this.userId = this.userId.bind(this);
-    this.userPassword = this.userPassword.bind(this);
+    this.modalOpen = this.modalOpen.bind(this);
+    this.modalClose = this.modalClose.bind(this);
   }
 
-  onClick() {
+  modalOpen() {
     this.setState({ showModal: true });
   }
 
-  exiteModalWindow(e) {
-    e.preventDefault();
+  modalClose() {
     this.setState({ showModal: false });
   }
 
-  userId(event) {
-    this.setState({ userId: event.target.value });
-  }
-
-  userPassword(event) {
-    this.setState({ userPassword: event.target.value });
-  }
-
-  entryInWebsite() {
-    users.map(user => {
-      console.log(`${this.state.userId}+${this.state.userPassword}`);
-      if (
-        user.name === this.state.userId ||
-        user.password === this.state.userPassword
-      ) {
-        if (this.state.userId === "admin") {
-          this.setState({ adminEntry: true });
-        } else {
-          this.setState({ userEntry: true });
-        }
-      } else {
-        alert("Неверный логин или пароль");
-      }
-    });
-  }
-
   render() {
+    const { showModal } = this.state;
     return (
       <div className="header">
         <div className="box-1">
@@ -74,99 +29,68 @@ class Header extends React.Component {
         </div>
         <div className="box-2"></div>
         <div className="box-3">
-          {!this.state.userEntry && (
-            <form>
-              <input
-                type="text"
-                name="login"
-                size="16"
-                onChange={this.userId}
-              />
-              <input
-                type="password"
-                name="password"
-                size="16"
-                onChange={this.userPassword}
-              />
-              <input
-                type="button"
-                className="input-submit"
-                name="entry"
-                value="Войти"
-                onClick={this.entryInWebsite}
-              />
-              <input
-                type="button"
-                className="input-submit"
-                name="register"
-                value="Регистрация"
-                onClick={this.onClick}
-              />
-            </form>
-          )}
-          {this.state.userEntry && (
-            <div className="formExit">
-              <nav className="profil-container">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <i className="fas fa-user-alt"></i>
-                      <span></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fas fa-user-circle"></i>Личные кабинет
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fas fa-shopping-basket"></i>Корзина
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fas fa-cart-plus"></i>
-                          Добавить объявление
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fas fa-sign-out-alt"></i>Выход
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          )}
+          <form>
+            <input type="text" name="login" size="16" />
+            <input type="password" name="password" size="16" />
+            <input
+              type="button"
+              className="input-submit"
+              name="entry"
+              value="Войти"
+            />
+            <input
+              type="button"
+              className="input-submit"
+              name="register"
+              value="Регистрация"
+              onClick={this.modalOpen}
+            />
+          </form>
+          <div className="formExit">
+            <nav className="profil-container">
+              <ul>
+                <li>
+                  <Link to="/">
+                    <i className="fas fa-user-alt"></i>
+                    <span></span>
+                  </Link>
+                  <ul>
+                    <li>
+                      <Link to="/">
+                        <i className="fas fa-user-circle"></i>Личные кабинет
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <i className="fas fa-shopping-basket"></i>Корзина
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <i className="fas fa-cart-plus"></i>
+                        Добавить объявление
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <i className="fas fa-sign-out-alt"></i>Выход
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        {this.state.showModal && (
-          <Modal>
-            <div className="modal-win" onClick={this.exiteModalWindow}>
-              <div
-                className="modal-container"
-                onClick={e => e.stopPropagation()}
-              >
-                <h2>Авторизуйтесь</h2>
-                <div className="input-win">
-                  <input type="text" placeholder="Login" />
-                </div>
-                <div className="input-win">
-                  <input type="email" placeholder="E-mail" />
-                </div>
-                <div className="input-win">
-                  <input type="password" placeholder="Password" />
-                </div>
-                <button>Регистрация</button>
-                <button className="close" onClick={this.exiteModalWindow}>
-                  Отмена
-                </button>
-              </div>
-            </div>
-          </Modal>
-        )}
+        <Modal open={showModal} onClose={this.modalClose}>
+          <div className="modal-class">
+            <h2>Авторизуйтесь</h2>
+            <input type="text" placeholder="Login" />
+            <input type="email" placeholder="E-mail" />
+            <input type="password" placeholder="Password" />
+            <button type="button">Регистрация</button>
+          </div>
+        </Modal>
       </div>
     );
   }
