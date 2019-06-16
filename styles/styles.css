@@ -69,7 +69,7 @@ body {
  }
 
 .formExit {
-  display: none;
+  display: block;
 }
 
 .profil-container {
