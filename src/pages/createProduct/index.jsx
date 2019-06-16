@@ -21,8 +21,12 @@ const CreateProduct = () => {
           <div className="title-container">
             <div className="left-tc">Рубрика:</div>
             <div className="right-tc">
-              <select name="heading" className="heading-tc">
-                <option selected disabled>
+              <select
+                name="heading"
+                className="heading-tc"
+                defaultValue="Рубрика"
+              >
+                <option disabled value="Рубрика">
                   Рубрика
                 </option>
                 <option value="phon">Смартфоны</option>
@@ -40,8 +44,8 @@ const CreateProduct = () => {
           <div className="title-container">
             <div className="left-tc">Модель:</div>
             <div className="right-tc">
-              <select name="model" className="heading-tc">
-                <option disabled selected>
+              <select name="model" className="heading-tc" defaultValue="Mодель">
+                <option disabled value="Mодель">
                   Mодель
                 </option>
                 <option value="apple">Apple</option>
@@ -67,8 +71,8 @@ const CreateProduct = () => {
           <div className="title-container">
             <div className="left-tc">Цвет:</div>
             <div className="right-tc">
-              <select name="color" className="heading-tc">
-                <option disabled selected>
+              <select name="color" className="heading-tc" defaultValue="Цвет">
+                <option disabled value="Цвет">
                   Цвет
                 </option>
                 <option value="black">Черный</option>
@@ -84,8 +88,8 @@ const CreateProduct = () => {
           <div className="title-container">
             <div className="left-tc">Год выпуска:</div>
             <div className="right-tc">
-              <select name="data" className="heading-tc">
-                <option disabled selected>
+              <select name="data" className="heading-tc" defaultValue="Год">
+                <option disabled value="Год">
                   Год
                 </option>
                 <option value="2014">2014</option>
