@@ -1,5 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-responsive-modal";
@@ -22,6 +21,7 @@ class Header extends React.Component {
     this.userName = this.userName.bind(this);
     this.userPassword = this.userPassword.bind(this);
     this.entryInWebsite = this.entryInWebsite.bind(this);
+    this.exitWebsite = this.exitWebsite.bind(this);
   }
 
   modalOpen() {
@@ -44,12 +44,14 @@ class Header extends React.Component {
     const { userName } = this.state;
     const { userPassword } = this.state;
     if (user.name === userName && user.password === userPassword) {
-      this.setState({ userName: user.name });
-      console.log(`${userName}, ${userPassword}`);
-      this.setState({ profileModal: true });
+      this.setState({ userName: user.name, profileModal: true });
     } else {
       alert("Неверный логин или пароль");
     }
+  }
+
+  exitWebsite() {
+    this.setState({ userName: "", profileModal: false });
   }
 
   render() {
@@ -109,18 +111,18 @@ class Header extends React.Component {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/">
+                        <Link to="/basket">
                           <i className="fas fa-shopping-basket"></i>Корзина
                         </Link>
                       </li>
                       <li>
-                        <Link to="/">
+                        <Link to="/create-product">
                           <i className="fas fa-cart-plus"></i>
                           Добавить объявление
                         </Link>
                       </li>
                       <li>
-                        <Link to="/">
+                        <Link to="/" onClick={this.exitWebsite}>
                           <i className="fas fa-sign-out-alt"></i>Выход
                         </Link>
                       </li>
