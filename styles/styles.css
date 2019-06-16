@@ -530,7 +530,7 @@ button:hover {
   padding-top: 8px;
 }
 
-#result {
+.add-img img {
   padding-top: 10px;
   display: flex;
   width: 180px;
