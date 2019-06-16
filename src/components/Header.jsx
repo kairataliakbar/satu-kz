@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-responsive-modal";
 
-const user = { name: "admin", password: "qwe123" };
+const admin = { name: "admin", password: "qwe123" };
 
 class Header extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Header extends React.Component {
     this.state = {
       showModal: false,
       profileModal: false,
+      adminEntry: false,
       userName: "",
       userPassword: ""
     };
@@ -43,10 +44,11 @@ class Header extends React.Component {
   entryInWebsite() {
     const { userName } = this.state;
     const { userPassword } = this.state;
-    if (user.name === userName && user.password === userPassword) {
-      this.setState({ userName: user.name, profileModal: true });
-    } else {
-      alert("Неверный логин или пароль");
+
+    this.setState({ profileModal: true, showModal: false });
+
+    if (admin.name === userName && admin.password === userPassword) {
+      this.setState({ userName: admin.name, adminEntry: true });
     }
   }
 
@@ -58,6 +60,7 @@ class Header extends React.Component {
     const { profileModal } = this.state;
     const { showModal } = this.state;
     const { userName } = this.state;
+    const { adminEntry } = this.state;
     return (
       <div className="header">
         <div className="box-1">
@@ -115,12 +118,14 @@ class Header extends React.Component {
                           <i className="fas fa-shopping-basket"></i>Корзина
                         </Link>
                       </li>
-                      <li>
-                        <Link to="/create-product">
-                          <i className="fas fa-cart-plus"></i>
-                          Добавить объявление
-                        </Link>
-                      </li>
+                      {adminEntry && (
+                        <li>
+                          <Link to="/create-product">
+                            <i className="fas fa-cart-plus"></i>
+                            Добавить объявление
+                          </Link>
+                        </li>
+                      )}
                       <li>
                         <Link to="/" onClick={this.exitWebsite}>
                           <i className="fas fa-sign-out-alt"></i>Выход
@@ -136,10 +141,16 @@ class Header extends React.Component {
         <Modal open={showModal} onClose={this.modalClose}>
           <div className="modal-class">
             <h2>Авторизуйтесь</h2>
-            <input type="text" placeholder="Login" />
+            <input type="text" placeholder="Login" onChange={this.userName} />
             <input type="email" placeholder="E-mail" />
-            <input type="password" placeholder="Password" />
-            <button type="button">Регистрация</button>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={this.userPassword}
+            />
+            <button type="button" onClick={this.entryInWebsite}>
+              Регистрация
+            </button>
           </div>
         </Modal>
       </div>
