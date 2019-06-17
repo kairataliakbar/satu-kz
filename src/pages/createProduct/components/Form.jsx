@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -32,14 +33,11 @@ class Form extends React.Component {
 
   publish() {
     if (localStorage.getItem("products")) {
-      const arrayProducts = JSON.parse(localStorage.getItem("products"));
-      localStorage.removeItem("products");
-      arrayProducts.unshift(this.state);
+      const products = JSON.parse(localStorage.getItem("products"));
+      const arrayProducts = products.concat(this.state);
       localStorage.setItem("products", JSON.stringify(arrayProducts));
     } else {
-      const arrayProducts = [];
-      arrayProducts.unshift(this.state);
-      localStorage.setItem("products", JSON.stringify(arrayProducts));
+      localStorage.setItem("products", JSON.stringify([this.state]));
     }
   }
 
@@ -54,6 +52,7 @@ class Form extends React.Component {
               type="text"
               className="text-header"
               onChange={e => this.onInputChange("title", e.target.value)}
+              required
             />
           </div>
         </div>
@@ -64,6 +63,7 @@ class Form extends React.Component {
               type="text"
               className="code-product"
               onChange={e => this.onInputChange("code", e.target.value)}
+              required
             />
           </div>
         </div>
@@ -75,6 +75,7 @@ class Form extends React.Component {
               className="heading-tc"
               defaultValue="Рубрика"
               onChange={e => this.onInputChange("heading", e.target.value)}
+              required
             >
               <option disabled value="Рубрика">
                 Рубрика
@@ -99,6 +100,7 @@ class Form extends React.Component {
               className="heading-tc"
               defaultValue="Mодель"
               onChange={e => this.onInputChange("model", e.target.value)}
+              required
             >
               <option disabled value="Mодель">
                 Mодель
@@ -131,6 +133,7 @@ class Form extends React.Component {
               className="heading-tc"
               defaultValue="Цвет"
               onChange={e => this.onInputChange("color", e.target.value)}
+              required
             >
               <option disabled value="Цвет">
                 Цвет
@@ -153,6 +156,7 @@ class Form extends React.Component {
               className="heading-tc"
               defaultValue="Год"
               onChange={e => this.onInputChange("data", e.target.value)}
+              required
             >
               <option disabled value="Год">
                 Год
@@ -173,6 +177,7 @@ class Form extends React.Component {
               type="text"
               className="text-prices"
               onChange={e => this.onInputChange("price", e.target.value)}
+              required
             />
             тг.
           </div>
@@ -186,6 +191,7 @@ class Form extends React.Component {
               cols="80"
               rows="1"
               onChange={e => this.onInputChange("textarea", e.target.value)}
+              required
             ></textarea>
           </div>
         </div>
@@ -206,7 +212,7 @@ class Form extends React.Component {
         </div>
         <div className="button-container">
           <button type="button" onClick={this.publish}>
-            <Link to="/">ОПУБЛИКОВАТЬ</Link>
+            ОПУБЛИКОВАТЬ
           </button>
           <button type="button">
             <Link to="/">ОТМЕНА</Link>
