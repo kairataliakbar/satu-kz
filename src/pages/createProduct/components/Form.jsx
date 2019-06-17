@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -20,6 +19,7 @@ class Form extends React.Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.imgSrcProduct = this.imgSrcProduct.bind(this);
+    this.publish = this.publish.bind(this);
   }
 
   onInputChange(fieldName, fieldValue) {
@@ -30,9 +30,21 @@ class Form extends React.Component {
     this.setState({ imgSrc: URL.createObjectURL(e.target.files[0]) });
   }
 
+  publish() {
+    if (localStorage.getItem("products")) {
+      const arrayProducts = JSON.parse(localStorage.getItem("products"));
+      localStorage.removeItem("products");
+      arrayProducts.unshift(this.state);
+      localStorage.setItem("products", JSON.stringify(arrayProducts));
+    } else {
+      const arrayProducts = [];
+      arrayProducts.unshift(this.state);
+      localStorage.setItem("products", JSON.stringify(arrayProducts));
+    }
+  }
+
   render() {
     const { imgSrc } = this.state;
-    console.log(this.state);
     return (
       <form>
         <div className="title-container">
@@ -194,7 +206,7 @@ class Form extends React.Component {
         </div>
         <div className="button-container">
           <button type="button" onClick={this.publish}>
-            ОПУБЛИКОВАТЬ
+            <Link to="/">ОПУБЛИКОВАТЬ</Link>
           </button>
           <button type="button">
             <Link to="/">ОТМЕНА</Link>
