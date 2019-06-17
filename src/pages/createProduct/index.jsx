@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +7,7 @@ class CreateProduct extends React.Component {
 
     this.state = {
       title: "",
-      cod: null,
+      code: null,
       heading: "",
       model: "",
       color: "",
@@ -18,76 +17,21 @@ class CreateProduct extends React.Component {
       imgSrc: ""
     };
 
-    this.titleProduct = this.titleProduct.bind(this);
-    this.codProduct = this.codProduct.bind(this);
-    this.headingProduct = this.headingProduct.bind(this);
-    this.modelProduct = this.modelProduct.bind(this);
-    this.colorProduct = this.colorProduct.bind(this);
-    this.dataProduct = this.dataProduct.bind(this);
-    this.priceProduct = this.priceProduct.bind(this);
-    this.textareaProduct = this.textareaProduct.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
     this.imgSrcProduct = this.imgSrcProduct.bind(this);
-    this.publish = this.publish.bind(this);
   }
 
-  titleProduct(e) {
-    const { title } = this.state;
-    this.setState({ title: e.target.value });
-    console.log(title);
-  }
-
-  codProduct(e) {
-    const { cod } = this.state;
-    this.setState({ cod: e.target.value });
-    console.log(cod);
-  }
-
-  headingProduct(e) {
-    const { heading } = this.state;
-    this.setState({ heading: e.target.value });
-    console.log(heading);
-  }
-
-  modelProduct(e) {
-    const { model } = this.state;
-    this.setState({ model: e.target.value });
-    console.log(model);
-  }
-
-  colorProduct(e) {
-    const { color } = this.state;
-    this.setState({ color: e.target.value });
-    console.log(color);
-  }
-
-  dataProduct(e) {
-    const { data } = this.state;
-    this.setState({ data: e.target.value });
-    console.log(data);
-  }
-
-  priceProduct(e) {
-    const { price } = this.state;
-    this.setState({ price: e.target.value });
-    console.log(price);
-  }
-
-  textareaProduct(e) {
-    const { textarea } = this.state;
-    this.setState({ textarea: e.target.value });
-    console.log(textarea);
+  onInputChange(fieldName, fieldValue) {
+    this.setState({ [fieldName]: fieldValue });
   }
 
   imgSrcProduct(e) {
-    const { imgSrc } = this.state;
     this.setState({ imgSrc: URL.createObjectURL(e.target.files[0]) });
-    console.log(`${imgSrc} s`);
   }
-
-  publish() {}
 
   render() {
     const { imgSrc } = this.state;
+    console.log(this.state);
     return (
       <div className="main">
         <div className="top-main">Подать объявление на SATU.KZ</div>
@@ -99,7 +43,7 @@ class CreateProduct extends React.Component {
                 <input
                   type="text"
                   className="text-header"
-                  onChange={this.titleProduct}
+                  onChange={e => this.onInputChange("title", e.target.value)}
                 />
               </div>
             </div>
@@ -108,8 +52,8 @@ class CreateProduct extends React.Component {
               <div className="right-tc">
                 <input
                   type="text"
-                  className="cod-product"
-                  onChange={this.codProduct}
+                  className="code-product"
+                  onChange={e => this.onInputChange("code", e.target.value)}
                 />
               </div>
             </div>
@@ -120,7 +64,7 @@ class CreateProduct extends React.Component {
                   name="heading"
                   className="heading-tc"
                   defaultValue="Рубрика"
-                  onChange={this.headingProduct}
+                  onChange={e => this.onInputChange("heading", e.target.value)}
                 >
                   <option disabled value="Рубрика">
                     Рубрика
@@ -146,7 +90,7 @@ class CreateProduct extends React.Component {
                   name="model"
                   className="heading-tc"
                   defaultValue="Mодель"
-                  onChange={this.modelProduct}
+                  onChange={e => this.onInputChange("model", e.target.value)}
                 >
                   <option disabled value="Mодель">
                     Mодель
@@ -178,7 +122,7 @@ class CreateProduct extends React.Component {
                   name="color"
                   className="heading-tc"
                   defaultValue="Цвет"
-                  onChange={this.colorProduct}
+                  onChange={e => this.onInputChange("color", e.target.value)}
                 >
                   <option disabled value="Цвет">
                     Цвет
@@ -200,7 +144,7 @@ class CreateProduct extends React.Component {
                   name="data"
                   className="heading-tc"
                   defaultValue="Год"
-                  onChange={this.dataProduct}
+                  onChange={e => this.onInputChange("data", e.target.value)}
                 >
                   <option disabled value="Год">
                     Год
@@ -220,7 +164,7 @@ class CreateProduct extends React.Component {
                 <input
                   type="text"
                   className="text-prices"
-                  onChange={this.priceProduct}
+                  onChange={e => this.onInputChange("price", e.target.value)}
                 />
                 тг.
               </div>
@@ -233,7 +177,7 @@ class CreateProduct extends React.Component {
                   className="text-area"
                   cols="80"
                   rows="1"
-                  onChange={this.textareaProduct}
+                  onChange={e => this.onInputChange("textarea", e.target.value)}
                 ></textarea>
               </div>
             </div>
