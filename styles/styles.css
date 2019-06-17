@@ -375,14 +375,6 @@ footer {
   font-size: 13px;
 }
 
-input:invalid {
-  border: solid 2px red;
-}
-
-input:valid {
-  border: solid 2px green;
-}
-
 .input-submit {
   background-color: rgb(252, 166, 6);
   border: 1px solid rgb(170, 112, 3);
@@ -481,6 +473,18 @@ button:hover {
   font-family: cursive;
   color: black;
   font-size: 18px;
+}
+
+@media all and (max-width: 1170px) {
+  .left-tc {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 1050px) {
+  .left-tc {
+    width: 100px;
+  }
 }
 
 .text-header {

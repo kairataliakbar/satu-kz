@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -28,7 +27,7 @@ class Form extends React.Component {
   }
 
   imgSrcProduct(e) {
-    this.setState({ imgSrc: URL.createObjectURL(e.target.files[0]) });
+    this.setState({ imgSrc: URL.createObjectURL(e.target.files[0].src) });
   }
 
   publish() {
@@ -60,7 +59,7 @@ class Form extends React.Component {
           <div className="left-tc">Код товара:</div>
           <div className="right-tc">
             <input
-              type="text"
+              type="number"
               className="code-product"
               onChange={e => this.onInputChange("code", e.target.value)}
               required
@@ -73,13 +72,10 @@ class Form extends React.Component {
             <select
               name="heading"
               className="heading-tc"
-              defaultValue="Рубрика"
               onChange={e => this.onInputChange("heading", e.target.value)}
               required
             >
-              <option disabled value="Рубрика">
-                Рубрика
-              </option>
+              <option value="">Рубрика</option>
               <option value="phon">Смартфоны</option>
               <option value="pc">Компьютеры</option>
               <option value="tv audio and video">ТВ, аудио и видио</option>
@@ -98,13 +94,10 @@ class Form extends React.Component {
             <select
               name="model"
               className="heading-tc"
-              defaultValue="Mодель"
               onChange={e => this.onInputChange("model", e.target.value)}
               required
             >
-              <option disabled value="Mодель">
-                Mодель
-              </option>
+              <option value="">Mодель</option>
               <option value="apple">Apple</option>
               <option value="samsung">Samsung</option>
               <option value="htc">HTC</option>
@@ -131,13 +124,10 @@ class Form extends React.Component {
             <select
               name="color"
               className="heading-tc"
-              defaultValue="Цвет"
               onChange={e => this.onInputChange("color", e.target.value)}
               required
             >
-              <option disabled value="Цвет">
-                Цвет
-              </option>
+              <option value="">Цвет</option>
               <option value="black">Черный</option>
               <option value="white">Белый</option>
               <option value="gold">Золотой</option>
@@ -154,13 +144,10 @@ class Form extends React.Component {
             <select
               name="data"
               className="heading-tc"
-              defaultValue="Год"
               onChange={e => this.onInputChange("data", e.target.value)}
               required
             >
-              <option disabled value="Год">
-                Год
-              </option>
+              <option value="">Год</option>
               <option value="2014">2014</option>
               <option value="2015">2015</option>
               <option value="2016">2016</option>
@@ -174,7 +161,7 @@ class Form extends React.Component {
           <div className="left-tc">Цена:</div>
           <div className="right-tc">
             <input
-              type="text"
+              type="number"
               className="text-prices"
               onChange={e => this.onInputChange("price", e.target.value)}
               required
@@ -205,17 +192,17 @@ class Form extends React.Component {
                 className="add-img-file"
                 accept="image/jpeg,image/gif,image/png"
                 onChange={this.imgSrcProduct}
+                required
               />
               <img src={imgSrc} alt="img" />
             </div>
           </div>
         </div>
         <div className="button-container">
-          <button type="button" onClick={this.publish}>
-            ОПУБЛИКОВАТЬ
-          </button>
+          <input type="submit" onClick={this.publish} value="Опубликовать" />
+          <input type="reset" value="Сбросить все" />
           <button type="button">
-            <Link to="/">ОТМЕНА</Link>
+            <Link to="/">Отмена</Link>
           </button>
         </div>
       </form>
