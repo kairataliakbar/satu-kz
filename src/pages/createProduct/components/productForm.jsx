@@ -27,7 +27,12 @@ class Form extends React.Component {
   }
 
   imgSrcProduct(e) {
-    this.setState({ imgSrc: URL.createObjectURL(e.target.files[0].src) });
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.setState({ imgSrc: reader.result });
+    };
   }
 
   publish() {
@@ -166,7 +171,7 @@ class Form extends React.Component {
               onChange={e => this.onInputChange("price", e.target.value)}
               required
             />
-            тг.
+            _тг.
           </div>
         </div>
         <div className="title-container">
@@ -199,11 +204,17 @@ class Form extends React.Component {
           </div>
         </div>
         <div className="button-container">
-          <input type="submit" onClick={this.publish} value="Опубликовать" />
-          <input type="reset" value="Сбросить все" />
-          <button type="button">
-            <Link to="/">Отмена</Link>
-          </button>
+          <Link to="/">
+            <button type="button" className="backButton">
+              Отмена
+            </button>
+          </Link>
+          <input type="reset" className="resetButton" value="Сбросить все" />
+          <Link to="/">
+            <button type="button" className="nextButton" onClick={this.publish}>
+              Опубликовать
+            </button>
+          </Link>
         </div>
       </form>
     );

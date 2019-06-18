@@ -551,29 +551,55 @@ button:hover {
 
 .button-container {
   display: flex;
-  flex-direction: row-reverse;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  padding: 5px 10% 5px 5px;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 10px 10px 10px;
 }
 
 .button-container button {
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
   font-family: sans-serif;
   padding: 8px;
   margin-right: 5px;
 }
 
-.button-container button a {
-  text-decoration: none;
-  color: black;
-  padding: 10px 0 10px 0;
+.backButton {
+  border: solid 4px red;
+  border-radius: 3px;
+  background-color: white;
 }
 
-.button-container button a:hover {
+.backButton:hover {
+  background-color: red;
+}
+
+.nextButton {
+  border: solid 4px orange;
+  border-radius: 3px;
+  background-color: orange;
+}
+
+.nextButton:hover {
+  border-color: green;
+  background-color: green;
+}
+
+.resetButton {
+  font-size: 16px;
+  cursor: pointer;
+  font-family: sans-serif;
+  padding: 8px;
+  margin-right: 5px;
+  border: solid 4px blue;
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+}
+
+.resetButton:hover {
+  background-color: blue;
   color: white;
-  transition-duration: 100ms;
 }
 
 .button-tc {
