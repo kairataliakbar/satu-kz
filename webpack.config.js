@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+/* eslint-disable no-undef */
 var path = require("path");
 
 module.exports = {

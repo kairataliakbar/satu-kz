@@ -1,8 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import ProductForm from "./components/ProductForm";
 
-const CreateProduct = () => {
+const NewProduct = props => {
+  console.log(props);
   return (
     <div className="main">
       <div className="top-main">Подать объявление на SATU.KZ</div>
@@ -13,4 +15,4 @@ const CreateProduct = () => {
   );
 };
 
-export default CreateProduct;
+export default connect(state => state)(NewProduct);
