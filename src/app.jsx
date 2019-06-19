@@ -1,5 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppLayout from "./components/AppLayout";
+import { Provider } from "react-redux";
 
-ReactDOM.render(<AppLayout />, document.getElementById("container"));
+import AppLayout from "./components/AppLayout";
+import store from "./store";
+
+ReactDOM.render(
+  <Provider store={store}>
+    <AppLayout />
+  </Provider>,
+  document.getElementById("container")
+);

@@ -7,7 +7,7 @@ import Menu from "./Menu";
 
 import Home from "../pages/home/index";
 import ProductDetales from "../pages/productsDetales/index";
-import CreateProduct from "../pages/createProduct/index";
+import CreateProduct from "../pages/newProduct/index";
 import Basket from "../pages/basket/index";
 import PagePhone from "../pages/pagePhone/index";
 import PageComp from "../pages/pageComp/index";
