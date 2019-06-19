@@ -1,7 +1,9 @@
+/* eslint-disable no-console */
 import React from "react";
 import { connect } from "react-redux";
 
 import ProductForm from "./components/ProductForm";
+import productAction from "./action";
 
 const NewProduct = props => {
   console.log(props);
@@ -15,4 +17,12 @@ const NewProduct = props => {
   );
 };
 
-export default connect(state => state)(NewProduct);
+function mapDispatchToProps(dispatch) {
+  return {
+    productState: state => {
+      dispatch(productAction(state));
+    }
+  };
+}
+
+export default connect(mapDispatchToProps)(NewProduct);

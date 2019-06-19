@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -36,13 +37,8 @@ class ProductForm extends React.Component {
   }
 
   publish() {
-    if (localStorage.getItem("products")) {
-      const products = JSON.parse(localStorage.getItem("products"));
-      const arrayProducts = products.concat(this.state);
-      localStorage.setItem("products", JSON.stringify(arrayProducts));
-    } else {
-      localStorage.setItem("products", JSON.stringify([this.state]));
-    }
+    console.log(this.state);
+    return this.state;
   }
 
   render() {
