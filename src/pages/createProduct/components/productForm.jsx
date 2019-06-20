@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Option from "./option";
+import Select from "./select";
 
-class Form extends React.Component {
+class ProductForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -48,7 +48,8 @@ class Form extends React.Component {
 
   render() {
     const { imgSrc } = this.state;
-    const headingArray = [
+    const headingTitle = "heading";
+    const heading = [
       { value: "", name: "Рубрика" },
       { value: "phon", name: "Смартфоны" },
       { value: "pc", name: "Компьютеры" },
@@ -58,8 +59,8 @@ class Form extends React.Component {
       { value: "home", name: "Дом" },
       { value: "auto products and transport", name: "Автотовары и транспорт" }
     ];
-
-    const modelArray = [
+    const modelTitle = "model";
+    const model = [
       { value: "", name: "Модель" },
       { value: "apple", name: "Apple" },
       { value: "samsung", name: "Samsung" },
@@ -79,7 +80,8 @@ class Form extends React.Component {
       { value: "philips", name: "Philips" },
       { value: "haier", name: "Haier" }
     ];
-    const colorArray = [
+    const colorTitle = "color";
+    const color = [
       { value: "", name: "Цвет" },
       { value: "black", name: "Черный" },
       { value: "white", name: "Белый" },
@@ -89,7 +91,8 @@ class Form extends React.Component {
       { value: "blue", name: "Синй" },
       { value: "brown", name: "Коричневый" }
     ];
-    const dataArray = [
+    const dataTitle = "data";
+    const data = [
       { value: "", name: "Год" },
       { value: "2014", name: "2014" },
       { value: "2015", name: "2015" },
@@ -123,49 +126,41 @@ class Form extends React.Component {
         <div className="title-container">
           <div className="left-tc">Рубрика:</div>
           <div className="right-tc">
-            <select
-              name="heading"
-              className="heading-tc"
-              onChange={e => this.onInputChange("heading", e.target.value)}
-            >
-              <Option options={headingArray} />
-            </select>
+            <Select
+              title={headingTitle}
+              onInputChange={this.onInputChange}
+              selectArray={heading}
+            />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Модель:</div>
           <div className="right-tc">
-            <select
-              className="heading-tc"
-              onChange={e => this.onInputChange("model", e.target.value)}
-              options={modelArray}
-            >
-              <Option options={modelArray} />
-            </select>
+            <Select
+              title={modelTitle}
+              onInputChange={this.onInputChange}
+              selectArray={model}
+            />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Цвет:</div>
           <div className="right-tc">
-            <select
-              name="color"
-              className="heading-tc"
-              onChange={e => this.onInputChange("color", e.target.value)}
-            >
-              <Option options={colorArray} />
-            </select>
+            <Select
+              title={colorTitle}
+              onInputChange={this.onInputChange}
+              selectArray={color}
+            />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Год выпуска:</div>
           <div className="right-tc">
-            <select
-              name="data"
-              className="heading-tc"
-              onChange={e => this.onInputChange("data", e.target.value)}
-            >
-              <Option options={dataArray} />
-            </select>
+            <Select
+              title={dataTitle}
+              onInputChange={this.onInputChange}
+              selectArray={data}
+            />
           </div>
         </div>
         <div className="title-container">
@@ -224,4 +219,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default ProductForm;
