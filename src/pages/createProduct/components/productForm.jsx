@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Option from "./option";
 
 class Form extends React.Component {
   constructor(props) {
@@ -47,6 +48,56 @@ class Form extends React.Component {
 
   render() {
     const { imgSrc } = this.state;
+    const headingArray = [
+      { value: "", name: "Рубрика" },
+      { value: "phon", name: "Смартфоны" },
+      { value: "pc", name: "Компьютеры" },
+      { value: "tv audio and video", name: "ТВ, аудио и видио" },
+      { value: "appliances", name: "Бытовая техника" },
+      { value: "equipment for kitchen", name: "Техника для кухни" },
+      { value: "home", name: "Дом" },
+      { value: "auto products and transport", name: "Автотовары и транспорт" }
+    ];
+
+    const modelArray = [
+      { value: "", name: "Модель" },
+      { value: "apple", name: "Apple" },
+      { value: "samsung", name: "Samsung" },
+      { value: "htc", name: "HTC" },
+      { value: "huawei", name: "Huawei" },
+      { value: "xiaomi", name: "Xiaomi" },
+      { value: "lg", name: "LG" },
+      { value: "lenova", name: "Lenova" },
+      { value: "sony", name: "Sony" },
+      { value: "meizu", name: "Meizu" },
+      { value: "oppo", name: "Oppo" },
+      { value: "acer", name: "Acer" },
+      { value: "asus", name: "Asus" },
+      { value: "hp", name: "HP" },
+      { value: "tefal", name: "Tefal" },
+      { value: "canon", name: "Canon" },
+      { value: "philips", name: "Philips" },
+      { value: "haier", name: "Haier" }
+    ];
+    const colorArray = [
+      { value: "", name: "Цвет" },
+      { value: "black", name: "Черный" },
+      { value: "white", name: "Белый" },
+      { value: "gold", name: "Золотой" },
+      { value: "yellow", name: "Желтый" },
+      { value: "green", name: "Зеленый" },
+      { value: "blue", name: "Синй" },
+      { value: "brown", name: "Коричневый" }
+    ];
+    const dataArray = [
+      { value: "", name: "Год" },
+      { value: "2014", name: "2014" },
+      { value: "2015", name: "2015" },
+      { value: "2016", name: "2016" },
+      { value: "2017", name: "2017" },
+      { value: "2018", name: "2018" },
+      { value: "2019", name: "2019" }
+    ];
     return (
       <form>
         <div className="title-container">
@@ -56,7 +107,6 @@ class Form extends React.Component {
               type="text"
               className="text-header"
               onChange={e => this.onInputChange("title", e.target.value)}
-              required
             />
           </div>
         </div>
@@ -67,7 +117,6 @@ class Form extends React.Component {
               type="number"
               className="code-product"
               onChange={e => this.onInputChange("code", e.target.value)}
-              required
             />
           </div>
         </div>
@@ -78,18 +127,8 @@ class Form extends React.Component {
               name="heading"
               className="heading-tc"
               onChange={e => this.onInputChange("heading", e.target.value)}
-              required
             >
-              <option value="">Рубрика</option>
-              <option value="phon">Смартфоны</option>
-              <option value="pc">Компьютеры</option>
-              <option value="tv audio and video">ТВ, аудио и видио</option>
-              <option value="appliances">Бытовая техника</option>
-              <option value="equipment for kitchen">Техника для кухни</option>
-              <option value="home">Дом</option>
-              <option value="auto products and transport">
-                Автотовары и транспорт
-              </option>
+              <Option options={headingArray} />
             </select>
           </div>
         </div>
@@ -97,29 +136,11 @@ class Form extends React.Component {
           <div className="left-tc">Модель:</div>
           <div className="right-tc">
             <select
-              name="model"
               className="heading-tc"
               onChange={e => this.onInputChange("model", e.target.value)}
-              required
+              options={modelArray}
             >
-              <option value="">Mодель</option>
-              <option value="apple">Apple</option>
-              <option value="samsung">Samsung</option>
-              <option value="htc">HTC</option>
-              <option value="huawei">Huawei</option>
-              <option value="xiaomi">Xiaomi</option>
-              <option value="lg">LG</option>
-              <option value="lenova">Lenova</option>
-              <option value="sony">Sony</option>
-              <option value="meizu">Meizu</option>
-              <option value="oppo">OPPO</option>
-              <option value="acer">Acer</option>
-              <option value="asus">Asus</option>
-              <option value="hp">HP</option>
-              <option value="tefal">Tefal</option>
-              <option value="canon">Canon</option>
-              <option value="philips">Philips</option>
-              <option value="haier">Haier</option>
+              <Option options={modelArray} />
             </select>
           </div>
         </div>
@@ -130,16 +151,8 @@ class Form extends React.Component {
               name="color"
               className="heading-tc"
               onChange={e => this.onInputChange("color", e.target.value)}
-              required
             >
-              <option value="">Цвет</option>
-              <option value="black">Черный</option>
-              <option value="white">Белый</option>
-              <option value="gold">Золотой</option>
-              <option value="yellow">Желтый</option>
-              <option value="green">Зеленый</option>
-              <option value="blue">Синий</option>
-              <option value="brown">Коричневый</option>
+              <Option options={colorArray} />
             </select>
           </div>
         </div>
@@ -150,15 +163,8 @@ class Form extends React.Component {
               name="data"
               className="heading-tc"
               onChange={e => this.onInputChange("data", e.target.value)}
-              required
             >
-              <option value="">Год</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
+              <Option options={dataArray} />
             </select>
           </div>
         </div>
@@ -169,7 +175,6 @@ class Form extends React.Component {
               type="number"
               className="text-prices"
               onChange={e => this.onInputChange("price", e.target.value)}
-              required
             />
             _тг.
           </div>
@@ -183,7 +188,6 @@ class Form extends React.Component {
               cols="80"
               rows="1"
               onChange={e => this.onInputChange("textarea", e.target.value)}
-              required
             ></textarea>
           </div>
         </div>
@@ -197,7 +201,6 @@ class Form extends React.Component {
                 className="add-img-file"
                 accept="image/jpeg,image/gif,image/png"
                 onChange={this.imgSrcProduct}
-                required
               />
               <img src={imgSrc} alt="img" />
             </div>

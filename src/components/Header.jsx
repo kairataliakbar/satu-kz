@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-responsive-modal";
 
-const admin = { name: "admin", password: "qwe123" };
+const admin = { login: "admin", password: "qwe123" };
 
 class Header extends React.Component {
   constructor(props) {
@@ -12,14 +12,13 @@ class Header extends React.Component {
       showModal: false,
       profileModal: false,
       adminEntry: false,
-      userName: "",
+      userLogin: "",
       userPassword: ""
     };
 
     this.modalOpen = this.modalOpen.bind(this);
     this.modalClose = this.modalClose.bind(this);
-    this.userName = this.userName.bind(this);
-    this.userPassword = this.userPassword.bind(this);
+    this.userEntry = this.userEntry.bind(this);
     this.entryInWebsite = this.entryInWebsite.bind(this);
     this.exitWebsite = this.exitWebsite.bind(this);
   }
@@ -32,34 +31,29 @@ class Header extends React.Component {
     this.setState({ showModal: false });
   }
 
-  userName(e) {
-    this.setState({ userName: e.target.value });
-  }
-
-  userPassword(e) {
-    this.setState({ userPassword: e.target.value });
+  userEntry(stateName, userValue) {
+    this.setState({ [stateName]: userValue });
   }
 
   entryInWebsite() {
-    const { userName } = this.state;
-    const { userPassword } = this.state;
+    const { userLogin, userPassword } = this.state;
 
     this.setState({ profileModal: true, showModal: false });
 
-    if (admin.name === userName && admin.password === userPassword) {
-      this.setState({ userName: admin.name, adminEntry: true });
+    if (admin.login === userLogin && admin.password === userPassword) {
+      this.setState({
+        userLogin: admin.login,
+        adminEntry: true
+      });
     }
   }
 
   exitWebsite() {
-    this.setState({ userName: "", profileModal: false });
+    this.setState({ userLogin: "", profileModal: false });
   }
 
   render() {
-    const { profileModal } = this.state;
-    const { showModal } = this.state;
-    const { userName } = this.state;
-    const { adminEntry } = this.state;
+    const { adminEntry, profileModal, showModal, userLogin } = this.state;
     return (
       <div className="header">
         <div className="box-1">
@@ -71,15 +65,15 @@ class Header extends React.Component {
             <form>
               <input
                 type="text"
-                name="login"
+                name="userLogin"
                 size="16"
-                onChange={this.userName}
+                onChange={e => this.userEntry("userLogin", e.target.value)}
               />
               <input
                 type="password"
-                name="password"
+                name="userPassword"
                 size="16"
-                onChange={this.userPassword}
+                onChange={e => this.userEntry("userPassword", e.target.value)}
               />
               <input
                 type="button"
@@ -104,7 +98,7 @@ class Header extends React.Component {
                   <li>
                     <Link to="/">
                       <i className="fas fa-user-alt"></i>
-                      <span>{userName}</span>
+                      <span>{userLogin}</span>
                     </Link>
                     <ul>
                       <li>
