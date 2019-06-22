@@ -1,28 +1,34 @@
 import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Home = () => {
+import Products from "./components/products";
+
+const Home = ({ products }) => {
   return (
     <div className="main">
       <div className="bottom-main">
         <div className="top-bottom-main">Популярные товары прямо сейчас</div>
-        <div className="container-bottom-main">
-          <div className="forvord-container">
-            <div className="forvord-container-img">
-              <img src="../../../image/iPhone7.jpg" alt="iPhone7" />
-              <div className="forvord-container-text">
-                Смартфон Apple iPhone 7, 32 GB, Black
-              </div>
-            </div>
-            <div className="forvord-container-button">
-              <div className="summa">235 890 ₸</div>
-              <button type="button">В корзину</button>
-              <button type="button">Купить в кредит</button>
-            </div>
-          </div>
-        </div>
+        <Products products={products} />
       </div>
     </div>
   );
 };
 
-export default Home;
+Home.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      imgSrc: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired
+    })
+  ).isRequired
+};
+
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  };
+};
+
+export default connect(mapStateToProps)(Home);
