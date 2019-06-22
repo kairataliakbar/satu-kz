@@ -22,7 +22,7 @@ class ProductForm extends React.Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.imgSrcProduct = this.imgSrcProduct.bind(this);
-    this.publish = this.publish.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onInputChange(fieldName, fieldValue) {
@@ -38,9 +38,8 @@ class ProductForm extends React.Component {
     };
   }
 
-  publish() {
-    console.log(this.state);
-    return this.state;
+  onSubmit() {
+    return this.props.onSubmit(this.state);
   }
 
   render() {
@@ -206,7 +205,11 @@ class ProductForm extends React.Component {
           </Link>
           <input type="reset" className="resetButton" value="Сбросить все" />
           <Link to="/">
-            <button type="button" className="nextButton" onClick={this.publish}>
+            <button
+              type="button"
+              className="nextButton"
+              onClick={this.onSubmit}
+            >
               Опубликовать
             </button>
           </Link>

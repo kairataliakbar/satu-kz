@@ -1,28 +1,28 @@
-/* eslint-disable no-console */
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import ProductForm from "./components/ProductForm";
-import productAction from "./action";
+import { addProduct } from "./productAction";
 
 const NewProduct = props => {
-  console.log(props);
+  const handleSubmit = values => props.addProduct(values);
+
   return (
     <div className="main">
       <div className="top-main">Подать объявление на SATU.KZ</div>
       <div className="body-main">
-        <ProductForm />
+        <ProductForm onSubmit={handleSubmit} />
       </div>
     </div>
   );
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    productState: state => {
-      dispatch(productAction(state));
-    }
-  };
-}
+NewProduct.propTypes = {
+  addProduct: PropTypes.func.isRequired
+};
 
-export default connect(mapDispatchToProps)(NewProduct);
+export default connect(
+  null,
+  { addProduct }
+)(NewProduct);

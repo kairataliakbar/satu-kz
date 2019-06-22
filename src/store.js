@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 import products from "./pages/newProduct/productReducer";
