@@ -7,11 +7,14 @@ const Products = ({ products }) => {
       {products.map(product => (
         <div key={product.title} className="forvord-container">
           <div className="forvord-container-img">
-            <img src={product.imgSrc} alt={product.title} />
+            <img
+              src={product.imgSrc || "../../../../image/camera_a.gif"}
+              alt={product.title}
+            />
             <div className="forvord-container-text">{product.title}</div>
           </div>
           <div className="forvord-container-button">
-            <div className="summa">{product.price}</div>
+            <div className="summa">{product.price} ₸</div>
             <button type="button">В корзину</button>
             <button type="button">Купить в кредит</button>
           </div>
