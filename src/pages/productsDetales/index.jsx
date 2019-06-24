@@ -1,30 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const ProductDetales = () => {
+import PageProduct from "./components/pageProduct";
+
+const ProductDetales = props => {
+  const productCode = props.match.params.code;
+  const { products } = props;
+  const code = parseInt(productCode, 10);
   return (
     <div className="main">
-      <div className="container-product">
-        <div className="image-product-container">
-          <img alt="product" />
-        </div>
-      </div>
-      <div className="right-container-product">
-        <div className="button-admin-product">
-          <button type="button">Удалить</button>
-          <button type="button">Редактировать</button>
-        </div>
-        <div className="headline-conatiner"></div>
-        <div className="prices-product">
-          <div className="prices-product-container"></div>
-        </div>
-        <div className="bottom-container-product">
-          <button type="button">В корзину</button>
-          <button type="button">Купить в кредит</button>
-        </div>
-        <div className="text-area-container"></div>
-      </div>
+      {products.map(product => {
+        if (product.code === code) {
+          return <PageProduct product={product} />;
+        }
+        return null;
+      })}
     </div>
   );
 };
 
-export default ProductDetales;
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  };
+};
+
+export default connect(mapStateToProps)(ProductDetales);
