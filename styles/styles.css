@@ -620,7 +620,7 @@ button:hover {
   background-color: rgb(145, 97, 9);
 }
 
-.container-product {
+.product-detales-container {
   display: flex;
   flex-direction: row;
 }
@@ -630,10 +630,19 @@ button:hover {
   display: flex;
 }
 
-@media all and (max-width: 1000px) {
-  .container-product{
+.image-product-container img {
+  width: 350px;
+  height: 350px;
+}
+
+@media all and (max-width: 800px) {
+.product-detales-container {
     flex-direction: column;
   } 
+  .image-product-container img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .right-container-product {
