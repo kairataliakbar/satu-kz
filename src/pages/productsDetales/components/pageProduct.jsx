@@ -3,7 +3,7 @@ import React from "react";
 const PageProduct = props => {
   const { product } = props;
   return (
-    <div>
+    <div className="product-detales-container">
       <div className="container-product">
         <div className="image-product-container">
           <img alt="product" src={product.imgSrc} />
