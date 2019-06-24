@@ -1,20 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Products = ({ products }) => {
   return (
     <div className="container-bottom-main">
       {products.map(product => (
-        <div key={product.title} className="forvord-container">
-          <div className="forvord-container-img">
-            <img
-              src={product.imgSrc || "../../../../image/camera_a.gif"}
-              alt={product.title}
-            />
-            <div className="forvord-container-text">{product.title}</div>
-          </div>
+        <div key={product.code} className="forvord-container">
+          <Link to={`/product-detales/${product.code}`}>
+            <div className="forvord-container-img">
+              <img
+                src={product.imgSrc || "../../../../image/camera_a.gif"}
+                alt={product.title}
+              />
+              <div className="forvord-container-text">{product.title}</div>
+              <div className="summa">{product.price} ₸</div>
+            </div>
+          </Link>
           <div className="forvord-container-button">
-            <div className="summa">{product.price} ₸</div>
             <button type="button">В корзину</button>
             <button type="button">Купить в кредит</button>
           </div>
@@ -29,7 +32,8 @@ Products.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       imgSrc: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired
+      price: PropTypes.number.isRequired,
+      code: PropTypes.number.isRequired
     })
   ).isRequired
 };
