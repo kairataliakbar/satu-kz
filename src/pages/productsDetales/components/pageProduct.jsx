@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const PageProduct = props => {
   const { product } = props;
@@ -26,6 +27,15 @@ const PageProduct = props => {
       </div>
     </div>
   );
+};
+
+PageProduct.propTypes = {
+  product: PropTypes.shape({
+    imgSrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    textarea: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default PageProduct;
