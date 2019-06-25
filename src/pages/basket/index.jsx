@@ -1,6 +1,8 @@
 import React from "react";
 
 import Modal from "react-responsive-modal";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class Basket extends React.Component {
   constructor(props) {
@@ -24,10 +26,29 @@ class Basket extends React.Component {
 
   render() {
     const { showModal } = this.state;
+    const { baskets } = this.props;
     return (
       <div className="main">
         <div className="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
-        <div className="basket-container"></div>
+        {baskets.map(basket => (
+          <div className="basket-container">
+            <div className="basket-container-product">
+              <img
+                src={basket.imgSrc}
+                alt={basket.code}
+                className="basket-img"
+              />
+              <div className="basket-container-text">
+                <div className="basket-headline">{basket.title}</div>
+                <div className="basket-codProduct">{basket.code}</div>
+                <div className="basket-prices">{basket.price}</div>
+              </div>
+              <div className="basket-button-container">
+                <span className="button-delete-basket">&times;</span>
+              </div>
+            </div>
+          </div>
+        ))}
         <div className="basket-container-total">
           <div className="container-total-prices">
             <div className="container-total">ИТОГО</div>
@@ -59,4 +80,21 @@ class Basket extends React.Component {
   }
 }
 
-export default Basket;
+const mapStateToProps = state => {
+  return {
+    baskets: state.baskets
+  };
+};
+
+Basket.propTypes = {
+  baskets: PropTypes.arrayOf(
+    PropTypes.shape({
+      imgSrc: PropTypes.string.isRequired,
+      code: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
+
+export default connect(mapStateToProps)(Basket);
