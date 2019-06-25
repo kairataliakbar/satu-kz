@@ -40,8 +40,12 @@ class Basket extends React.Component {
               />
               <div className="basket-container-text">
                 <div className="basket-headline">{basket.title}</div>
-                <div className="basket-codProduct">{basket.code}</div>
-                <div className="basket-prices">{basket.price}</div>
+                <div className="basket-codProduct">
+                  Код товара: {basket.code}
+                </div>
+                <div className="basket-prices">
+                  Цена товара: {basket.price} ₸
+                </div>
               </div>
               <div className="basket-button-container">
                 <span className="button-delete-basket">&times;</span>

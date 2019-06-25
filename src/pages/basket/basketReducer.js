@@ -25,8 +25,13 @@ const data = [
   }
 ];
 
-const basketReducer = (state = data) => {
-  return state;
+const basketReducer = (state = data, action) => {
+  switch (action.type) {
+    case "ADD_BASKET":
+      return state.concat(action.payload);
+    default:
+      return state;
+  }
 };
 
 export default basketReducer;
