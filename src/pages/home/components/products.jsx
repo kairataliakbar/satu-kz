@@ -9,10 +9,7 @@ const Products = ({ products }) => {
         <div key={product.code} className="forvord-container">
           <Link to={`/product-detales/${product.code}`}>
             <div className="forvord-container-img">
-              <img
-                src={product.imgSrc || "../../../../image/camera_a.gif"}
-                alt={product.title}
-              />
+              <img src={product.imgSrc} alt={product.title} />
               <div className="forvord-container-text">{product.title}</div>
               <div className="summa">{product.price} ₸</div>
             </div>

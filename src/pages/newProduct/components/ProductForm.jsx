@@ -17,7 +17,7 @@ class ProductForm extends React.Component {
       data: null,
       price: null,
       textarea: "",
-      imgSrc: ""
+      imgSrc: "../../../../image/camera_a.gif"
     };
 
     this.onInputChange = this.onInputChange.bind(this);
