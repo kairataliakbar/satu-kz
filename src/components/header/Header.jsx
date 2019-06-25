@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import Modal from "react-responsive-modal";
+import UserForm from "./components/UserForm";
 
 const admin = { login: "admin", password: "qwe123" };
 
@@ -62,34 +64,11 @@ class Header extends React.Component {
         <div className="box-2"></div>
         <div className="box-3">
           {!profileModal && (
-            <form>
-              <input
-                type="text"
-                name="userLogin"
-                size="16"
-                onChange={e => this.userEntry("userLogin", e.target.value)}
-              />
-              <input
-                type="password"
-                name="userPassword"
-                size="16"
-                onChange={e => this.userEntry("userPassword", e.target.value)}
-              />
-              <input
-                type="button"
-                className="input-submit"
-                name="entry"
-                value="Войти"
-                onClick={this.entryInWebsite}
-              />
-              <input
-                type="button"
-                className="input-submit"
-                name="register"
-                value="Регистрация"
-                onClick={this.modalOpen}
-              />
-            </form>
+            <UserForm
+              userEntry={this.userEntry}
+              entryInWebsite={this.entryInWebsite}
+              modalOpen={this.modalOpen}
+            />
           )}
           {profileModal && (
             <div className="formExit">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Select from "./select";
+
+import Select from "./Select";
 
 class ProductForm extends React.Component {
   constructor(props) {

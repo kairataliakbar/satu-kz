@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Option from "./option";
 
 const Select = props => {
-  const { selectArray } = props;
-  const { onInputChange } = props;
-  const { title } = props;
+  const { selectArray, onInputChange, title } = props;
   return (
     <select
       className="heading-tc"
       onInputChange={e => onInputChange(title, e.target.value)}
     >
-      <Option options={selectArray} />
+      {selectArray.map(option => (
+        <option key={option.value} value={option.value}>
+          {option.name}
+        </option>
+      ))}
     </select>
   );
 };
