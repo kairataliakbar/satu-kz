@@ -16,13 +16,7 @@ const Home = ({ products }) => {
 };
 
 Home.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      imgSrc: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired
-    })
-  ).isRequired
+  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 const mapStateToProps = state => {

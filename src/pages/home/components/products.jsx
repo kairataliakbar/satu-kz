@@ -32,8 +32,8 @@ Products.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       imgSrc: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      code: PropTypes.number.isRequired
+      price: PropTypes.string.isRequired,
+      code: PropTypes.string.isRequired
     })
   ).isRequired
 };
