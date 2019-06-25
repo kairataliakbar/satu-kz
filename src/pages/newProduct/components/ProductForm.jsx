@@ -1,6 +1,6 @@
-/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -27,6 +27,11 @@ class ProductForm extends React.Component {
     this.setState({ [fieldName]: fieldValue });
   }
 
+  onSubmit() {
+    const { onSubmit } = this.props;
+    return onSubmit(this.state);
+  }
+
   imgSrcProduct(e) {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -34,10 +39,6 @@ class ProductForm extends React.Component {
     reader.onload = () => {
       this.setState({ imgSrc: reader.result });
     };
-  }
-
-  onSubmit() {
-    return this.props.onSubmit(this.state);
   }
 
   render() {
@@ -219,5 +220,9 @@ class ProductForm extends React.Component {
     );
   }
 }
+
+ProductForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
 
 export default ProductForm;

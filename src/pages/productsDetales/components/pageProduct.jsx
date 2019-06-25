@@ -33,7 +33,7 @@ PageProduct.propTypes = {
   product: PropTypes.shape({
     imgSrc: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     textarea: PropTypes.string.isRequired
   }).isRequired
 };

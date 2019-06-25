@@ -7,7 +7,7 @@ import PageProduct from "./components/pageProduct";
 const ProductDetales = props => {
   const { match } = props;
   const { products } = props;
-  const code = parseInt(match.params.code, 10);
+  const { code } = match.params;
   return (
     <div className="main">
       {products.map(product => {
@@ -34,7 +34,7 @@ ProductDetales.propTypes = {
   }).isRequired,
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      code: PropTypes.number.isRequired
+      code: PropTypes.string.isRequired
     })
   ).isRequired
 };
