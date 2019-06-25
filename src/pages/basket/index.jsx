@@ -1,4 +1,5 @@
 import React from "react";
+
 import Modal from "react-responsive-modal";
 
 class Basket extends React.Component {

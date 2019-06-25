@@ -16,7 +16,7 @@ const PagePhone = () => {
                   type="number"
                   min="1"
                   max="1000000"
-                  value="1"
+                  defaultValue="1"
                   className="price-product-filter"
                 />
               </p>
@@ -26,7 +26,7 @@ const PagePhone = () => {
                   type="number"
                   min="1"
                   max="1000000"
-                  value="1000000"
+                  defaultValue="1000000"
                   className="price-product-filter"
                 />
               </p>
@@ -35,8 +35,11 @@ const PagePhone = () => {
                 <select
                   name="productManufacturerFilter"
                   className="product-filter"
+                  defaultValue="Mодель"
                 >
-                  <option>Mодель</option>
+                  <option disabled value="Mодель">
+                    Mодель
+                  </option>
                   <option value="apple">Apple</option>
                   <option value="samsung">Samsung</option>
                   <option value="htc">HTC</option>
@@ -58,8 +61,14 @@ const PagePhone = () => {
               </p>
               <p className="title-filter">Цвет</p>
               <p>
-                <select name="color" className="product-filter">
-                  <option>Цвет</option>
+                <select
+                  name="color"
+                  className="product-filter"
+                  defaultValue="Цвет"
+                >
+                  <option disabled value="Цвет">
+                    Цвет
+                  </option>
                   <option value="black">Черный</option>
                   <option value="white">Белый</option>
                   <option value="gold">Золотой</option>
@@ -71,8 +80,14 @@ const PagePhone = () => {
               </p>
               <p className="title-filter">Год</p>
               <p>
-                <select name="data" className="product-filter">
-                  <option>Год</option>
+                <select
+                  name="data"
+                  className="product-filter"
+                  defaultValue="Год"
+                >
+                  <option disabled value="Год">
+                    Год
+                  </option>
                   <option value="2014">2014</option>
                   <option value="2015">2015</option>
                   <option value="2016">2016</option>
