@@ -98,6 +98,7 @@ class ProductForm extends React.Component {
       { value: "2018", name: "2018" },
       { value: "2019", name: "2019" }
     ];
+
     return (
       <form>
         <div className="title-container">
@@ -172,7 +173,7 @@ class ProductForm extends React.Component {
           </div>
         </div>
         <div className="title-container">
-          <div className="left-tc">Описание и характеристика:</div>
+          <div className="left-tc">Описание:</div>
           <div className="right-tc">
             <textarea
               name="text"
