@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Select from "./Select";
+import Constants from "./Constants";
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -45,60 +46,24 @@ class ProductForm extends React.Component {
 
   render() {
     const { imgSrc } = this.state;
-    const headingTitle = "heading";
-    const heading = [
-      { value: "", name: "Рубрика" },
-      { value: "phon", name: "Смартфоны" },
-      { value: "pc", name: "Компьютеры" },
-      { value: "tv audio and video", name: "ТВ, аудио и видио" },
-      { value: "appliances", name: "Бытовая техника" },
-      { value: "equipment for kitchen", name: "Техника для кухни" },
-      { value: "home", name: "Дом" },
-      { value: "auto products and transport", name: "Автотовары и транспорт" }
-    ];
-    const modelTitle = "model";
-    const model = [
-      { value: "", name: "Модель" },
-      { value: "apple", name: "Apple" },
-      { value: "samsung", name: "Samsung" },
-      { value: "htc", name: "HTC" },
-      { value: "huawei", name: "Huawei" },
-      { value: "xiaomi", name: "Xiaomi" },
-      { value: "lg", name: "LG" },
-      { value: "lenova", name: "Lenova" },
-      { value: "sony", name: "Sony" },
-      { value: "meizu", name: "Meizu" },
-      { value: "oppo", name: "Oppo" },
-      { value: "acer", name: "Acer" },
-      { value: "asus", name: "Asus" },
-      { value: "hp", name: "HP" },
-      { value: "tefal", name: "Tefal" },
-      { value: "canon", name: "Canon" },
-      { value: "philips", name: "Philips" },
-      { value: "haier", name: "Haier" }
-    ];
-    const colorTitle = "color";
-    const color = [
-      { value: "", name: "Цвет" },
-      { value: "black", name: "Черный" },
-      { value: "white", name: "Белый" },
-      { value: "gold", name: "Золотой" },
-      { value: "yellow", name: "Желтый" },
-      { value: "green", name: "Зеленый" },
-      { value: "blue", name: "Синй" },
-      { value: "brown", name: "Коричневый" }
-    ];
-    const dataTitle = "data";
-    const data = [
-      { value: "", name: "Год" },
-      { value: "2014", name: "2014" },
-      { value: "2015", name: "2015" },
-      { value: "2016", name: "2016" },
-      { value: "2017", name: "2017" },
-      { value: "2018", name: "2018" },
-      { value: "2019", name: "2019" }
-    ];
-
+    const {
+      heading,
+      headingTitle,
+      model,
+      modelTitle,
+      color,
+      colorTitle,
+      data,
+      dataTitle
+    } = Constants;
+    const arrayHeading = heading;
+    const titleHeading = headingTitle;
+    const arrayModel = model;
+    const titleModel = modelTitle;
+    const arrayColor = color;
+    const titleColor = colorTitle;
+    const arrayData = data;
+    const titleData = dataTitle;
     return (
       <form>
         <div className="title-container">
@@ -125,9 +90,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Рубрика:</div>
           <div className="right-tc">
             <Select
-              title={headingTitle}
+              title={titleHeading}
               onInputChange={this.onInputChange}
-              selectArray={heading}
+              selectArray={arrayHeading}
             />
           </div>
         </div>
@@ -135,9 +100,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Модель:</div>
           <div className="right-tc">
             <Select
-              title={modelTitle}
+              title={titleModel}
               onInputChange={this.onInputChange}
-              selectArray={model}
+              selectArray={arrayModel}
             />
           </div>
         </div>
@@ -145,9 +110,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Цвет:</div>
           <div className="right-tc">
             <Select
-              title={colorTitle}
+              title={titleColor}
               onInputChange={this.onInputChange}
-              selectArray={color}
+              selectArray={arrayColor}
             />
           </div>
         </div>
@@ -155,9 +120,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Год выпуска:</div>
           <div className="right-tc">
             <Select
-              title={dataTitle}
+              title={titleData}
               onInputChange={this.onInputChange}
-              selectArray={data}
+              selectArray={arrayData}
             />
           </div>
         </div>
