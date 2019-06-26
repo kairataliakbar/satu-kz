@@ -5,8 +5,7 @@ import PropTypes from "prop-types";
 import PageProduct from "./components/pageProduct";
 
 const ProductDetales = props => {
-  const { match } = props;
-  const { products } = props;
+  const { match, products } = props;
   const { code } = match.params;
   return (
     <div className="main">

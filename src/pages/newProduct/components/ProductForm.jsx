@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import Select from "./Select";
+import Constants from "./Constants";
+
 class ProductForm extends React.Component {
   constructor(props) {
     super(props);
@@ -43,6 +46,24 @@ class ProductForm extends React.Component {
 
   render() {
     const { imgSrc } = this.state;
+    const {
+      heading,
+      headingTitle,
+      model,
+      modelTitle,
+      color,
+      colorTitle,
+      data,
+      dataTitle
+    } = Constants;
+    const arrayHeading = heading;
+    const titleHeading = headingTitle;
+    const arrayModel = model;
+    const titleModel = modelTitle;
+    const arrayColor = color;
+    const titleColor = colorTitle;
+    const arrayData = data;
+    const titleData = dataTitle;
     return (
       <form>
         <div className="title-container">
@@ -52,7 +73,6 @@ class ProductForm extends React.Component {
               type="text"
               className="text-header"
               onChange={e => this.onInputChange("title", e.target.value)}
-              required
             />
           </div>
         </div>
@@ -63,99 +83,47 @@ class ProductForm extends React.Component {
               type="number"
               className="code-product"
               onChange={e => this.onInputChange("code", e.target.value)}
-              required
             />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Рубрика:</div>
           <div className="right-tc">
-            <select
-              name="heading"
-              className="heading-tc"
-              onChange={e => this.onInputChange("heading", e.target.value)}
-              required
-            >
-              <option value="">Рубрика</option>
-              <option value="phon">Смартфоны</option>
-              <option value="pc">Компьютеры</option>
-              <option value="tv audio and video">ТВ, аудио и видио</option>
-              <option value="appliances">Бытовая техника</option>
-              <option value="equipment for kitchen">Техника для кухни</option>
-              <option value="home">Дом</option>
-              <option value="auto products and transport">
-                Автотовары и транспорт
-              </option>
-            </select>
+            <Select
+              title={titleHeading}
+              onInputChange={this.onInputChange}
+              selectArray={arrayHeading}
+            />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Модель:</div>
           <div className="right-tc">
-            <select
-              name="model"
-              className="heading-tc"
-              onChange={e => this.onInputChange("model", e.target.value)}
-              required
-            >
-              <option value="">Mодель</option>
-              <option value="apple">Apple</option>
-              <option value="samsung">Samsung</option>
-              <option value="htc">HTC</option>
-              <option value="huawei">Huawei</option>
-              <option value="xiaomi">Xiaomi</option>
-              <option value="lg">LG</option>
-              <option value="lenova">Lenova</option>
-              <option value="sony">Sony</option>
-              <option value="meizu">Meizu</option>
-              <option value="oppo">OPPO</option>
-              <option value="acer">Acer</option>
-              <option value="asus">Asus</option>
-              <option value="hp">HP</option>
-              <option value="tefal">Tefal</option>
-              <option value="canon">Canon</option>
-              <option value="philips">Philips</option>
-              <option value="haier">Haier</option>
-            </select>
+            <Select
+              title={titleModel}
+              onInputChange={this.onInputChange}
+              selectArray={arrayModel}
+            />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Цвет:</div>
           <div className="right-tc">
-            <select
-              name="color"
-              className="heading-tc"
-              onChange={e => this.onInputChange("color", e.target.value)}
-              required
-            >
-              <option value="">Цвет</option>
-              <option value="black">Черный</option>
-              <option value="white">Белый</option>
-              <option value="gold">Золотой</option>
-              <option value="yellow">Желтый</option>
-              <option value="green">Зеленый</option>
-              <option value="blue">Синий</option>
-              <option value="brown">Коричневый</option>
-            </select>
+            <Select
+              title={titleColor}
+              onInputChange={this.onInputChange}
+              selectArray={arrayColor}
+            />
           </div>
         </div>
         <div className="title-container">
           <div className="left-tc">Год выпуска:</div>
           <div className="right-tc">
-            <select
-              name="data"
-              className="heading-tc"
-              onChange={e => this.onInputChange("data", e.target.value)}
-              required
-            >
-              <option value="">Год</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-            </select>
+            <Select
+              title={titleData}
+              onInputChange={this.onInputChange}
+              selectArray={arrayData}
+            />
           </div>
         </div>
         <div className="title-container">
@@ -165,13 +133,12 @@ class ProductForm extends React.Component {
               type="number"
               className="text-prices"
               onChange={e => this.onInputChange("price", e.target.value)}
-              required
             />
             _тг.
           </div>
         </div>
         <div className="title-container">
-          <div className="left-tc">Описание и характеристика:</div>
+          <div className="left-tc">Описание:</div>
           <div className="right-tc">
             <textarea
               name="text"
@@ -179,7 +146,6 @@ class ProductForm extends React.Component {
               cols="80"
               rows="1"
               onChange={e => this.onInputChange("textarea", e.target.value)}
-              required
             ></textarea>
           </div>
         </div>
@@ -193,7 +159,6 @@ class ProductForm extends React.Component {
                 className="add-img-file"
                 accept="image/jpeg,image/gif,image/png"
                 onChange={this.imgSrcProduct}
-                required
               />
               <img src={imgSrc} alt="img" />
             </div>
