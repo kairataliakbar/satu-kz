@@ -799,6 +799,8 @@ button:hover {
 }
 
 .button-delete-basket {
+  background-color: none;
+  border: none;
   color: black;
   font-family: sans-serif;
   cursor: pointer;
@@ -808,7 +810,6 @@ button:hover {
 
 .button-delete-basket:hover {
   color: orange;
-  text-shadow: 0px 0px 20px rgb(145, 100, 3);
 }
 
 .modal-basket-text {

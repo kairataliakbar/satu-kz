@@ -32,6 +32,7 @@ class ProductForm extends React.Component {
 
   onSubmit() {
     const { onSubmit } = this.props;
+    console.log(onSubmit);
     return onSubmit(this.state);
   }
 

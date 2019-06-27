@@ -30,36 +30,45 @@ class Basket extends React.Component {
     return (
       <div className="main">
         <div className="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
-        {baskets.map(basket => (
-          <div className="basket-container">
-            <div className="basket-container-product">
-              <img
-                src={basket.imgSrc}
-                alt={basket.code}
-                className="basket-img"
-              />
-              <div className="basket-container-text">
-                <div className="basket-headline">{basket.title}</div>
-                <div className="basket-codProduct">
-                  Код товара: {basket.code}
+        <div className="basket-container">
+          {baskets.map(basket => (
+            <div key={basket.code}>
+              <div className="basket-container-product">
+                <img
+                  src={basket.imgSrc}
+                  alt={basket.code}
+                  className="basket-img"
+                />
+                <div className="basket-container-text">
+                  <div className="basket-headline">{basket.title}</div>
+                  <div className="basket-codProduct">
+                    Код товара: {basket.code}
+                  </div>
+                  <div className="basket-prices">
+                    Цена товара: {basket.price} ₸
+                  </div>
                 </div>
-                <div className="basket-prices">
-                  Цена товара: {basket.price} ₸
+                <div className="basket-button-container">
+                  <span>
+                    <input
+                      type="button"
+                      className="button-delete-basket"
+                      onClick={this.onClick}
+                      value="&times;"
+                    />
+                  </span>
                 </div>
-              </div>
-              <div className="basket-button-container">
-                <span className="button-delete-basket">&times;</span>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <div className="basket-container-total">
           <div className="container-total-prices">
             <div className="container-total">ИТОГО</div>
             <div className="total-prices"></div>
           </div>
           <div className="total-prices-button">
-            <button type="button" onClick={this.onClick}></button>
+            <button type="button"></button>
           </div>
         </div>
         <Modal open={showModal} onClose={this.exitModal}>

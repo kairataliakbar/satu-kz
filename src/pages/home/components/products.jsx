@@ -6,15 +6,12 @@ class Products extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { basket: "" };
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit() {
+  onSubmit(e, product) {
     const { onSubmit } = this.props;
-    const { basket } = this.state;
-    return onSubmit(basket);
+    return onSubmit(product);
   }
 
   render() {
@@ -23,7 +20,6 @@ class Products extends React.Component {
       <div className="container-bottom-main">
         {products.map(product => (
           <div key={product.code} className="forvord-container">
-            {this.setState({ basket: product })}
             <Link to={`/product-detales/${product.code}`}>
               <div className="forvord-container-img">
                 <img src={product.imgSrc} alt={product.title} />
@@ -32,7 +28,7 @@ class Products extends React.Component {
               </div>
             </Link>
             <div className="forvord-container-button">
-              <button type="button" onClick={this.onSubmit}>
+              <button type="button" onClick={e => this.onSubmit(e, product)}>
                 В корзину
               </button>
               <button type="button">Купить в кредит</button>
