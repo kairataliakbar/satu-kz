@@ -1,22 +1,31 @@
+/* eslint-disable no-shadow */
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Modal from "react-responsive-modal";
+import { deleteBasket } from "./basketAction";
 
 class Basket extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { showModal: false };
+    this.state = { showModal: false, deleteProduct: "" };
 
     this.onClick = this.onClick.bind(this);
-
     this.exitModal = this.exitModal.bind(this);
+    this.hendalSubmitDelete = this.hendalSubmitDelete.bind(this);
   }
 
-  onClick() {
-    this.setState({ showModal: true });
+  onClick(e, product) {
+    this.setState({ showModal: true, deleteProduct: product });
+  }
+
+  hendalSubmitDelete() {
+    const { deleteProduct } = this.state;
+    const { deleteBasket } = this.props;
+    deleteBasket(deleteProduct);
+    this.setState({ showModal: false });
   }
 
   exitModal(e) {
@@ -53,7 +62,7 @@ class Basket extends React.Component {
                     <input
                       type="button"
                       className="button-delete-basket"
-                      onClick={this.onClick}
+                      onClick={e => this.onClick(e, basket)}
                       value="&times;"
                     />
                   </span>
@@ -73,7 +82,7 @@ class Basket extends React.Component {
         </div>
         <Modal open={showModal} onClose={this.exitModal}>
           <div className="modal-basket-text">
-            Вы действительно хотите удалить данное объявление с корзины?
+            Вы действительно хотите удалить данное продукт с корзины?
           </div>
           <div className="modal-basket-button">
             <button
@@ -83,7 +92,11 @@ class Basket extends React.Component {
             >
               <i className="far fa-times-circle"></i>
             </button>
-            <button type="button" className="delete-basket-button">
+            <button
+              type="button"
+              className="delete-basket-button"
+              onClick={this.hendalSubmitDelete}
+            >
               <i className="far fa-check-circle"></i>
             </button>
           </div>
@@ -100,6 +113,7 @@ const mapStateToProps = state => {
 };
 
 Basket.propTypes = {
+  deleteBasket: PropTypes.func.isRequired,
   baskets: PropTypes.arrayOf(
     PropTypes.shape({
       imgSrc: PropTypes.string.isRequired,
@@ -110,4 +124,7 @@ Basket.propTypes = {
   ).isRequired
 };
 
-export default connect(mapStateToProps)(Basket);
+export default connect(
+  mapStateToProps,
+  { deleteBasket }
+)(Basket);
