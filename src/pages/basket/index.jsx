@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Modal from "react-responsive-modal";
+import TotalPrice from "./components/TotalPrice";
 import { deleteBasket } from "./basketAction";
 
 class Basket extends React.Component {
@@ -71,18 +72,10 @@ class Basket extends React.Component {
             </div>
           ))}
         </div>
-        <div className="basket-container-total">
-          <div className="container-total-prices">
-            <div className="container-total">ИТОГО</div>
-            <div className="total-prices"></div>
-          </div>
-          <div className="total-prices-button">
-            <button type="button"></button>
-          </div>
-        </div>
+        <TotalPrice products={baskets} />
         <Modal open={showModal} onClose={this.exitModal}>
           <div className="modal-basket-text">
-            Вы действительно хотите удалить данное продукт с корзины?
+            Вы действительно хотите удалить данный продукт с корзины?
           </div>
           <div className="modal-basket-button">
             <button
