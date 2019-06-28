@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import PageProduct from "./components/pageProduct";
+import PageProduct from "./components/PageProduct";
 
 const ProductDetales = props => {
   const { match, products } = props;

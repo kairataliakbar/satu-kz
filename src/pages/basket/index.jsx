@@ -1,8 +1,8 @@
 import React from "react";
-
-import Modal from "react-responsive-modal";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import Modal from "react-responsive-modal";
 
 class Basket extends React.Component {
   constructor(props) {
