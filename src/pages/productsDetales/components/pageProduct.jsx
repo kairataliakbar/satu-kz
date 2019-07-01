@@ -5,18 +5,24 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { deleteProduct } from "../../newProduct/productAction";
+import { addBasket } from "../../basket/basketAction";
 
 class PageProduct extends React.Component {
   constructor(props) {
     super(props);
 
     this.onClick = this.onClick.bind(this);
+    this.onAddBasket = this.onAddBasket.bind(this);
   }
 
   onClick() {
     const { product, deleteProduct } = this.props;
-    console.log(deleteProduct);
     deleteProduct(product);
+  }
+
+  onAddBasket() {
+    const { product, addBasket } = this.props;
+    addBasket(product);
   }
 
   render() {
@@ -30,7 +36,7 @@ class PageProduct extends React.Component {
         </div>
         <div className="right-container-product">
           <div className="bottom-container-product">
-            <Link to="/">
+            <Link className="link-button" to="/">
               <button type="button" onClick={this.onClick}>
                 Удалить
               </button>
@@ -42,7 +48,9 @@ class PageProduct extends React.Component {
             <div className="prices-product-container">{product.price} ₸</div>
           </div>
           <div className="bottom-container-product">
-            <button type="button">В корзину</button>
+            <button type="button" onClick={this.onAddBasket}>
+              В корзину
+            </button>
             <button type="button">Купить в кредит</button>
           </div>
           <div className="text-area-container">{product.textarea}</div>
@@ -54,6 +62,7 @@ class PageProduct extends React.Component {
 
 PageProduct.propTypes = {
   deleteProduct: PropTypes.func.isRequired,
+  addBasket: PropTypes.func.isRequired,
   product: PropTypes.shape({
     imgSrc: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -64,5 +73,5 @@ PageProduct.propTypes = {
 
 export default connect(
   null,
-  { deleteProduct }
+  { deleteProduct, addBasket }
 )(PageProduct);
