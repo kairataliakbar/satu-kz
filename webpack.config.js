@@ -1,6 +1,6 @@
 /* eslint-disable no-var */
 /* eslint-disable no-undef */
-import path from "path";
+var path = require("path");
 
 module.exports = {
   entry: "./src/app.jsx",
