@@ -66,6 +66,8 @@ const productReducer = (state = data, action) => {
   switch (action.type) {
     case "ADD_PRODUCT":
       return state.concat(action.payload);
+    case "DELETE_PRODUCT":
+      return state.filter(product => product !== action.payload);
     default:
       return state;
   }
