@@ -19,7 +19,11 @@ const Home = ({ inBasket, products }) => {
 };
 
 Home.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired
+    })
+  ).isRequired,
   inBasket: PropTypes.func.isRequired
 };
 

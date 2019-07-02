@@ -1,6 +1,7 @@
-// eslint-disable-next-line import/prefer-default-export
-export const addProduct = product => dispatch =>
+const addProduct = payload => dispatch =>
   dispatch({
     type: "ADD_PRODUCT",
-    payload: product
+    payload
   });
+
+export default addProduct;
