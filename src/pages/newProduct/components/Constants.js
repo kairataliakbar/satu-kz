@@ -1,5 +1,5 @@
 export const headingTitle = "heading";
-export const heading = [
+export const headingSelect = [
   { value: "", name: "Рубрика" },
   { value: "phon", name: "Смартфоны" },
   { value: "pc", name: "Компьютеры" },
@@ -10,7 +10,7 @@ export const heading = [
   { value: "auto products and transport", name: "Автотовары и транспорт" }
 ];
 export const modelTitle = "model";
-export const model = [
+export const modelSelect = [
   { value: "", name: "Модель" },
   { value: "apple", name: "Apple" },
   { value: "samsung", name: "Samsung" },
@@ -31,7 +31,7 @@ export const model = [
   { value: "haier", name: "Haier" }
 ];
 export const colorTitle = "color";
-export const color = [
+export const colorSelect = [
   { value: "", name: "Цвет" },
   { value: "black", name: "Черный" },
   { value: "white", name: "Белый" },
@@ -42,7 +42,7 @@ export const color = [
   { value: "brown", name: "Коричневый" }
 ];
 export const dataTitle = "data";
-export const data = [
+export const dataSelect = [
   { value: "", name: "Год" },
   { value: "2014", name: "2014" },
   { value: "2015", name: "2015" },

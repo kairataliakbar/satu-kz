@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const PageProduct = props => {
-  const { product } = props;
+const PageProduct = ({ product }) => {
   return (
-    <div className="product-detales-container">
+    <div className="product-details-container">
       <div className="container-product">
         <div className="image-product-container">
           <img alt="product" src={product.imgSrc} />

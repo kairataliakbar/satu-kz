@@ -47,13 +47,13 @@ class ProductForm extends React.Component {
   render() {
     const { imgSrc } = this.state;
     const {
-      heading,
+      headingSelect,
       headingTitle,
-      model,
+      modelSelect,
       modelTitle,
-      color,
+      colorSelect,
       colorTitle,
-      data,
+      dataSelect,
       dataTitle
     } = Constants;
     return (
@@ -84,7 +84,7 @@ class ProductForm extends React.Component {
             <Select
               title={headingTitle}
               onInputChange={this.onInputChange}
-              selectArray={heading}
+              selectArray={headingSelect}
             />
           </div>
         </div>
@@ -94,7 +94,7 @@ class ProductForm extends React.Component {
             <Select
               title={modelTitle}
               onInputChange={this.onInputChange}
-              selectArray={model}
+              selectArray={modelSelect}
             />
           </div>
         </div>
@@ -104,7 +104,7 @@ class ProductForm extends React.Component {
             <Select
               title={colorTitle}
               onInputChange={this.onInputChange}
-              selectArray={color}
+              selectArray={colorSelect}
             />
           </div>
         </div>
@@ -114,7 +114,7 @@ class ProductForm extends React.Component {
             <Select
               title={dataTitle}
               onInputChange={this.onInputChange}
-              selectArray={data}
+              selectArray={dataSelect}
             />
           </div>
         </div>

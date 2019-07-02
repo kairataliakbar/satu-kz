@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TotalPrice = props => {
-  const { products } = props;
+const TotalPrice = ({ products }) => {
   const arrays = products.map(product => parseInt(product.price, 10));
   return (
     <div className="basket-container-total">
@@ -13,14 +12,18 @@ const TotalPrice = props => {
         </div>
       </div>
       <div className="total-prices-button">
-        <button type="button"></button>
+        <button type="button">Оформить заказ</button>
       </div>
     </div>
   );
 };
 
 TotalPrice.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default TotalPrice;

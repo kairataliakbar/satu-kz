@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -5,8 +6,8 @@ import PropTypes from "prop-types";
 import ProductForm from "./components/ProductForm";
 import { addProduct } from "./productAction";
 
-const NewProduct = props => {
-  const handleSubmit = values => props.addProduct(values);
+const NewProduct = ({ addProduct }) => {
+  const handleSubmit = values => addProduct(values);
 
   return (
     <div className="main">

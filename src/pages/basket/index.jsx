@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -18,14 +17,14 @@ class Basket extends React.Component {
     this.hendalSubmitDelete = this.hendalSubmitDelete.bind(this);
   }
 
-  onClick(e, product) {
+  onClick(product) {
     this.setState({ showModal: true, deleteProduct: product });
   }
 
   hendalSubmitDelete() {
     const { deleteProduct } = this.state;
-    const { deleteBasket } = this.props;
-    deleteBasket(deleteProduct);
+    const { deleteInBasket } = this.props;
+    deleteInBasket(deleteProduct);
     this.setState({ showModal: false });
   }
 
@@ -36,26 +35,26 @@ class Basket extends React.Component {
 
   render() {
     const { showModal } = this.state;
-    const { baskets } = this.props;
+    const { basket } = this.props;
     return (
       <div className="main">
         <div className="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
         <div className="basket-container">
-          {baskets.map(basket => (
-            <div key={basket.code}>
+          {basket.map(product => (
+            <div key={product.code}>
               <div className="basket-container-product">
                 <img
-                  src={basket.imgSrc}
-                  alt={basket.code}
+                  src={product.imgSrc}
+                  alt={product.code}
                   className="basket-img"
                 />
                 <div className="basket-container-text">
-                  <div className="basket-headline">{basket.title}</div>
+                  <div className="basket-headline">{product.title}</div>
                   <div className="basket-codProduct">
-                    Код товара: {basket.code}
+                    Код товара: {product.code}
                   </div>
                   <div className="basket-prices">
-                    Цена товара: {basket.price} ₸
+                    Цена товара: {product.price} ₸
                   </div>
                 </div>
                 <div className="basket-button-container">
@@ -63,7 +62,7 @@ class Basket extends React.Component {
                     <input
                       type="button"
                       className="button-delete-basket"
-                      onClick={e => this.onClick(e, basket)}
+                      onClick={() => this.onClick(product)}
                       value="&times;"
                     />
                   </span>
@@ -72,7 +71,7 @@ class Basket extends React.Component {
             </div>
           ))}
         </div>
-        <TotalPrice products={baskets} />
+        <TotalPrice products={basket} />
         <Modal open={showModal} onClose={this.exitModal}>
           <div className="modal-basket-text">
             Вы действительно хотите удалить данный продукт с корзины?
@@ -101,13 +100,13 @@ class Basket extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    baskets: state.baskets
+    basket: state.basket
   };
 };
 
 Basket.propTypes = {
-  deleteBasket: PropTypes.func.isRequired,
-  baskets: PropTypes.arrayOf(
+  deleteInBasket: PropTypes.func.isRequired,
+  basket: PropTypes.arrayOf(
     PropTypes.shape({
       imgSrc: PropTypes.string.isRequired,
       code: PropTypes.string.isRequired,
@@ -119,5 +118,5 @@ Basket.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { deleteBasket }
+  { deleteInBasket: deleteBasket }
 )(Basket);

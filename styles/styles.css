@@ -620,7 +620,7 @@ button:hover {
   background-color: rgb(145, 97, 9);
 }
 
-.product-detales-container {
+.product-details-container {
   display: flex;
   flex-direction: row;
 }
@@ -636,7 +636,7 @@ button:hover {
 }
 
 @media all and (max-width: 800px) {
-.product-detales-container {
+.product-details-container {
     flex-direction: column;
   } 
   .image-product-container img {

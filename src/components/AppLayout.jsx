@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Menu from "./Menu";
 
 import Home from "../pages/home/index";
-import ProductDetales from "../pages/productsDetales/index";
+import ProductDetails from "../pages/productsDetails/index";
 import CreateProduct from "../pages/newProduct/index";
 import Basket from "../pages/basket/index";
 import PagePhone from "../pages/pagePhone/index";
@@ -21,7 +21,7 @@ const AppLayout = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/basket" component={Basket} />
-          <Route path="/product-detales/:code" component={ProductDetales} />
+          <Route path="/product-details/:code" component={ProductDetails} />
           <Route path="/create-product" component={CreateProduct} />
           <Route path="/products/page-phone" component={PagePhone} />
           <Route path="/products/page-comp" component={PageComp} />
