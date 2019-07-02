@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import ProductForm from "./components/ProductForm";
-import { addProduct } from "./productAction";
+import addProduct from "./productAction";
 
 const NewProduct = ({ addInAction }) => {
   const handleSubmit = values => addInAction(values);
