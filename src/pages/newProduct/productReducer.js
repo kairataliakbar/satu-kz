@@ -67,7 +67,7 @@ const productReducer = (state = data, action) => {
     case "ADD_PRODUCT":
       return state.concat(action.payload);
     case "DELETE_PRODUCT":
-      return state.filter(product => product !== action.payload);
+      return state.filter(product => product.code !== action.payload.code);
     default:
       return state;
   }
