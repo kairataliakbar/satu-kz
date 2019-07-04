@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Select from "./Select";
-import Constants from "./Constants";
+import * as Constants from "./Constants";
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -47,23 +47,15 @@ class ProductForm extends React.Component {
   render() {
     const { imgSrc } = this.state;
     const {
-      heading,
+      headingSelect,
       headingTitle,
-      model,
+      modelSelect,
       modelTitle,
-      color,
+      colorSelect,
       colorTitle,
-      data,
+      dataSelect,
       dataTitle
     } = Constants;
-    const arrayHeading = heading;
-    const titleHeading = headingTitle;
-    const arrayModel = model;
-    const titleModel = modelTitle;
-    const arrayColor = color;
-    const titleColor = colorTitle;
-    const arrayData = data;
-    const titleData = dataTitle;
     return (
       <form>
         <div className="title-container">
@@ -90,9 +82,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Рубрика:</div>
           <div className="right-tc">
             <Select
-              title={titleHeading}
+              title={headingTitle}
               onInputChange={this.onInputChange}
-              selectArray={arrayHeading}
+              selectArray={headingSelect}
             />
           </div>
         </div>
@@ -100,9 +92,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Модель:</div>
           <div className="right-tc">
             <Select
-              title={titleModel}
+              title={modelTitle}
               onInputChange={this.onInputChange}
-              selectArray={arrayModel}
+              selectArray={modelSelect}
             />
           </div>
         </div>
@@ -110,9 +102,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Цвет:</div>
           <div className="right-tc">
             <Select
-              title={titleColor}
+              title={colorTitle}
               onInputChange={this.onInputChange}
-              selectArray={arrayColor}
+              selectArray={colorSelect}
             />
           </div>
         </div>
@@ -120,9 +112,9 @@ class ProductForm extends React.Component {
           <div className="left-tc">Год выпуска:</div>
           <div className="right-tc">
             <Select
-              title={titleData}
+              title={dataTitle}
               onInputChange={this.onInputChange}
-              selectArray={arrayData}
+              selectArray={dataSelect}
             />
           </div>
         </div>

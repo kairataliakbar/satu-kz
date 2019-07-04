@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 
 import PageProduct from "./components/pageProduct";
 
-const ProductDetales = props => {
-  const { match, products } = props;
+const ProductDetails = ({ match, products }) => {
   const { code } = match.params;
   return (
     <div className="main">
@@ -25,7 +24,7 @@ const mapStateToProps = state => {
   };
 };
 
-ProductDetales.propTypes = {
+ProductDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       cod: PropTypes.node
@@ -38,4 +37,4 @@ ProductDetales.propTypes = {
   ).isRequired
 };
 
-export default connect(mapStateToProps)(ProductDetales);
+export default connect(mapStateToProps)(ProductDetails);

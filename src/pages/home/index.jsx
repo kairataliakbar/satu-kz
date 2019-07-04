@@ -1,22 +1,30 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addBasket } from "../basket/basketAction";
 
-import Products from "./components/products";
+import Products from "./components/Products";
 
-const Home = ({ products }) => {
+const Home = ({ inBasket, products }) => {
+  const hendalSubmit = values => inBasket(values);
+
   return (
     <div className="main">
       <div className="bottom-main">
         <div className="top-bottom-main">Популярные товары прямо сейчас</div>
-        <Products products={products} />
+        <Products onSubmit={hendalSubmit} products={products} />
       </div>
     </div>
   );
 };
 
 Home.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  inBasket: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -25,4 +33,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(
+  mapStateToProps,
+  { inBasket: addBasket }
+)(Home);
