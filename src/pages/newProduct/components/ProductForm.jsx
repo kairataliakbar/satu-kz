@@ -1,185 +1,188 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { reduxForm, Field } from "redux-form";
 
-import Select from "./Select";
 import * as Constants from "./Constants";
 
-class ProductForm extends React.Component {
-  constructor(props) {
-    super(props);
+const adaptFileEventToValue = delegate => e => delegate(e.target.files[0]);
 
-    this.state = {
-      title: "",
-      code: null,
-      heading: "",
-      model: "",
-      color: "",
-      data: null,
-      price: null,
-      textarea: "",
-      imgSrc: "../../../../image/camera_a.gif"
-    };
+const FileInput = ({
+  input: { value: omitValue, onChange, onBlur, ...inputProps },
+  meta: omitMeta,
+  ...props
+}) => (
+  <input
+    onChange={adaptFileEventToValue(onChange)}
+    onBlur={adaptFileEventToValue(onBlur)}
+    type="file"
+    {...inputProps}
+    {...props}
+  />
+);
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.imgSrcProduct = this.imgSrcProduct.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onInputChange(fieldName, fieldValue) {
-    this.setState({ [fieldName]: fieldValue });
-  }
-
-  onSubmit() {
-    const { onSubmit } = this.props;
-    return onSubmit(this.state);
-  }
-
-  imgSrcProduct(e) {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.setState({ imgSrc: reader.result });
-    };
-  }
-
-  render() {
-    const { imgSrc } = this.state;
-    const {
-      heading,
-      headingTitle,
-      model,
-      modelTitle,
-      color,
-      colorTitle,
-      data,
-      dataTitle
-    } = Constants;
-    return (
-      <form>
-        <div className="title-container">
-          <div className="left-tc">Заголовок:</div>
-          <div className="right-tc">
-            <input
-              type="text"
-              className="text-header"
-              onChange={e => this.onInputChange("title", e.target.value)}
+const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
+  const { heading, model, color, data } = Constants;
+  return (
+    <form onSubmit={handleSubmit(val => console.log(val))}>
+      <div className="title-container">
+        <div className="left-tc">Заголовок:</div>
+        <div className="right-tc">
+          <Field
+            name="titleProduct"
+            component="input"
+            type="text"
+            className="text-header"
+          />
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Код товара:</div>
+        <div className="right-tc">
+          <Field
+            name="codeProduct"
+            component="input"
+            type="number"
+            className="code-product"
+          />
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Рубрика:</div>
+        <div className="right-tc">
+          <Field
+            name="headingProduct"
+            component="select"
+            className="heading-tc"
+          >
+            {heading.map(option => {
+              return (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              );
+            })}
+          </Field>
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Модель:</div>
+        <div className="right-tc">
+          <Field name="modelProduct" component="select" className="heading-tc">
+            {model.map(option => {
+              return (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              );
+            })}
+          </Field>
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Цвет:</div>
+        <div className="right-tc">
+          <Field name="colorProduct" component="select" className="heading-tc">
+            {color.map(option => {
+              return (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              );
+            })}
+          </Field>
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Год выпуска:</div>
+        <div className="right-tc">
+          <Field name="dataProduct" component="select" className="heading-tc">
+            {data.map(option => {
+              return (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              );
+            })}
+          </Field>
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Цена:</div>
+        <div className="right-tc">
+          <Field
+            name="priceProduct"
+            component="input"
+            type="number"
+            className="text-prices"
+          />
+          _тг.
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Описание:</div>
+        <div className="right-tc">
+          <Field
+            name="textareaProduct"
+            component="textarea"
+            className="text-area"
+            cols="80"
+            rows="1"
+          />
+        </div>
+      </div>
+      <div className="title-container">
+        <div className="left-tc">Добавить фото:</div>
+        <div className="right-tc">
+          <div className="add-img">
+            <Field
+              name="imageProduct"
+              component={FileInput}
+              type="file"
+              className="add-img-file"
+              accept="image/jpeg,image/gif,image/png"
             />
           </div>
         </div>
-        <div className="title-container">
-          <div className="left-tc">Код товара:</div>
-          <div className="right-tc">
-            <input
-              type="number"
-              className="code-product"
-              onChange={e => this.onInputChange("code", e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Рубрика:</div>
-          <div className="right-tc">
-            <Select
-              title={headingTitle}
-              onInputChange={this.onInputChange}
-              selectArray={heading}
-            />
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Модель:</div>
-          <div className="right-tc">
-            <Select
-              title={modelTitle}
-              onInputChange={this.onInputChange}
-              selectArray={model}
-            />
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Цвет:</div>
-          <div className="right-tc">
-            <Select
-              title={colorTitle}
-              onInputChange={this.onInputChange}
-              selectArray={color}
-            />
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Год выпуска:</div>
-          <div className="right-tc">
-            <Select
-              title={dataTitle}
-              onInputChange={this.onInputChange}
-              selectArray={data}
-            />
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Цена:</div>
-          <div className="right-tc">
-            <input
-              type="number"
-              className="text-prices"
-              onChange={e => this.onInputChange("price", e.target.value)}
-            />
-            _тг.
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Описание:</div>
-          <div className="right-tc">
-            <textarea
-              name="text"
-              className="text-area"
-              cols="80"
-              rows="1"
-              onChange={e => this.onInputChange("textarea", e.target.value)}
-            ></textarea>
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc">Добавить фото:</div>
-          <div className="right-tc">
-            <div className="add-img">
-              <input
-                type="file"
-                name="addImg"
-                className="add-img-file"
-                accept="image/jpeg,image/gif,image/png"
-                onChange={this.imgSrcProduct}
-              />
-              <img src={imgSrc} alt="img" />
-            </div>
-          </div>
-        </div>
-        <div className="button-container">
-          <Link to="/">
-            <button type="button" className="backButton">
-              Отмена
-            </button>
-          </Link>
-          <input type="reset" className="resetButton" value="Сбросить все" />
-          <Link to="/">
-            <button
-              type="button"
-              className="nextButton"
-              onClick={this.onSubmit}
-            >
-              Опубликовать
-            </button>
-          </Link>
-        </div>
-      </form>
-    );
-  }
-}
-
-ProductForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+      </div>
+      <div className="button-container">
+        <Link to="/">
+          <button type="button" className="backButton">
+            Отмена
+          </button>
+        </Link>
+        <button type="button" className="resetButton" onClick={reset}>
+          Сбросить все
+        </button>
+        <button
+          type="submit"
+          className="nextButton"
+          disabled={!valid || pristine || submitting}
+        >
+          Опубликовать
+        </button>
+      </div>
+    </form>
+  );
 };
 
-export default ProductForm;
+ProductForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  valid: PropTypes.bool.isRequired,
+  pristine: PropTypes.bool.isRequired
+};
+
+FileInput.propTypes = {
+  meta: PropTypes.shape({
+    omitMeta: PropTypes.func
+  }).isRequired,
+  input: PropTypes.shape({
+    onChange: PropTypes.func.isRequired
+  }).isRequired
+};
+
+export default reduxForm({
+  form: "productForm"
+})(ProductForm);

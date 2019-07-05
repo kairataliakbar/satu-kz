@@ -1,4 +1,3 @@
-export const headingTitle = "heading";
 export const heading = [
   { value: "", name: "Рубрика" },
   { value: "phon", name: "Смартфоны" },
@@ -7,9 +6,11 @@ export const heading = [
   { value: "appliances", name: "Бытовая техника" },
   { value: "equipment for kitchen", name: "Техника для кухни" },
   { value: "home", name: "Дом" },
-  { value: "auto products and transport", name: "Автотовары и транспорт" }
+  {
+    value: "auto products and transport",
+    name: "Автотовары и транспорт"
+  }
 ];
-export const modelTitle = "model";
 export const model = [
   { value: "", name: "Модель" },
   { value: "apple", name: "Apple" },
@@ -30,7 +31,6 @@ export const model = [
   { value: "philips", name: "Philips" },
   { value: "haier", name: "Haier" }
 ];
-export const colorTitle = "color";
 export const color = [
   { value: "", name: "Цвет" },
   { value: "black", name: "Черный" },
@@ -41,7 +41,6 @@ export const color = [
   { value: "blue", name: "Синй" },
   { value: "brown", name: "Коричневый" }
 ];
-export const dataTitle = "data";
 export const data = [
   { value: "", name: "Год" },
   { value: "2014", name: "2014" },
