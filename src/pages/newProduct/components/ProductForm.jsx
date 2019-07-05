@@ -21,17 +21,65 @@ const FileInput = ({
   />
 );
 
+const validate = values => {
+  const errors = {};
+  if (!values.titleProduct) {
+    errors.titleProduct = "Required";
+  } else if (values.titleProduct.length < 10) {
+    errors.titleProduct = "Must be 10 characters or less";
+  }
+  if (!values.codeProduct) {
+    errors.codeProduct = "Required";
+  } else if (Number.isNaN(values.codeProduct)) {
+    errors.codeProduct = "Must be a number";
+  } else if (Number(values.codeProduct.length) < 8) {
+    errors.codeProduct = "Must be 8 characters or less";
+  }
+  if (!values.priceProduct) {
+    errors.priceProduct = "Required";
+  }
+  if (!values.textareaProduct) {
+    errors.textareaProduct = "Required";
+  } else if (values.textareaProduct.length < 60) {
+    errors.textareaProduct = "Must be 60 characters or less";
+  }
+  return errors;
+};
+
+const renderField = ({
+  input,
+  className,
+  type,
+  textarea,
+  meta: { touched, error, warning }
+}) => {
+  const textareaType = (
+    <textarea {...input} className={className} type={type} />
+  );
+  const inputType = <input {...input} className={className} type={type} />;
+  return (
+    <div>
+      <div>
+        {textarea ? textareaType : inputType}
+        {touched &&
+          ((error && <span style={{ color: "red" }}>{error}</span>) ||
+            (warning && <span style={{ color: "red" }}>{warning}</span>))}
+      </div>
+    </div>
+  );
+};
+
 const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
   const { heading, model, color, data } = Constants;
   return (
-    <form onSubmit={handleSubmit(val => console.log(val))}>
+    <form onSubmit={handleSubmit(value => console.log(value))}>
       <div className="title-container">
         <div className="left-tc">Заголовок:</div>
         <div className="right-tc">
           <Field
             name="titleProduct"
-            component="input"
             type="text"
+            component={renderField}
             className="text-header"
           />
         </div>
@@ -41,8 +89,8 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="right-tc">
           <Field
             name="codeProduct"
-            component="input"
             type="number"
+            component={renderField}
             className="code-product"
           />
         </div>
@@ -52,6 +100,7 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="right-tc">
           <Field
             name="headingProduct"
+            type="select"
             component="select"
             className="heading-tc"
           >
@@ -68,7 +117,12 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
       <div className="title-container">
         <div className="left-tc">Модель:</div>
         <div className="right-tc">
-          <Field name="modelProduct" component="select" className="heading-tc">
+          <Field
+            name="modelProduct"
+            type="select"
+            component="select"
+            className="heading-tc"
+          >
             {model.map(option => {
               return (
                 <option key={option.value} value={option.value}>
@@ -82,7 +136,12 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
       <div className="title-container">
         <div className="left-tc">Цвет:</div>
         <div className="right-tc">
-          <Field name="colorProduct" component="select" className="heading-tc">
+          <Field
+            name="colorProduct"
+            type="select"
+            component="select"
+            className="heading-tc"
+          >
             {color.map(option => {
               return (
                 <option key={option.value} value={option.value}>
@@ -96,7 +155,12 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
       <div className="title-container">
         <div className="left-tc">Год выпуска:</div>
         <div className="right-tc">
-          <Field name="dataProduct" component="select" className="heading-tc">
+          <Field
+            name="dataProduct"
+            type="select"
+            component="select"
+            className="heading-tc"
+          >
             {data.map(option => {
               return (
                 <option key={option.value} value={option.value}>
@@ -112,8 +176,8 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="right-tc">
           <Field
             name="priceProduct"
-            component="input"
             type="number"
+            component={renderField}
             className="text-prices"
           />
           _тг.
@@ -124,10 +188,12 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="right-tc">
           <Field
             name="textareaProduct"
-            component="textarea"
+            type="textarea"
+            component={renderField}
             className="text-area"
             cols="80"
             rows="1"
+            textarea
           />
         </div>
       </div>
@@ -137,8 +203,8 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
           <div className="add-img">
             <Field
               name="imageProduct"
-              component={FileInput}
               type="file"
+              component={FileInput}
               className="add-img-file"
               accept="image/jpeg,image/gif,image/png"
             />
@@ -179,10 +245,27 @@ FileInput.propTypes = {
     omitMeta: PropTypes.func
   }).isRequired,
   input: PropTypes.shape({
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func
   }).isRequired
 };
 
+renderField.propTypes = {
+  input: PropTypes.shape({
+    name: PropTypes.string
+  }).isRequired,
+  className: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  textarea: PropTypes.bool,
+  meta: PropTypes.shape({
+    touched: PropTypes.bool.isRequired
+  }).isRequired
+};
+
+renderField.defaultProps = {
+  textarea: false
+};
+
 export default reduxForm({
-  form: "productForm"
+  form: "productForm",
+  validate
 })(ProductForm);
