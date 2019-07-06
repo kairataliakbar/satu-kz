@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -16,13 +15,13 @@ class PageProduct extends React.Component {
   }
 
   onClick() {
-    const { product, deleteProduct } = this.props;
-    deleteProduct(product);
+    const { product, deleteInProduct } = this.props;
+    deleteInProduct(product);
   }
 
   onAddBasket() {
-    const { product, addBasket } = this.props;
-    addBasket(product);
+    const { product, addInBasket } = this.props;
+    addInBasket(product);
   }
 
   render() {
@@ -31,7 +30,7 @@ class PageProduct extends React.Component {
       <div className="product-detales-container">
         <div className="container-product">
           <div className="image-product-container">
-            <img alt="product" src={product.imgSrc} />
+            <img alt="product" src={product.image} />
           </div>
         </div>
         <div className="right-container-product">
@@ -61,10 +60,10 @@ class PageProduct extends React.Component {
 }
 
 PageProduct.propTypes = {
-  deleteProduct: PropTypes.func.isRequired,
-  addBasket: PropTypes.func.isRequired,
+  deleteInProduct: PropTypes.func.isRequired,
+  addInBasket: PropTypes.func.isRequired,
   product: PropTypes.shape({
-    imgSrc: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     textarea: PropTypes.string.isRequired
@@ -73,5 +72,5 @@ PageProduct.propTypes = {
 
 export default connect(
   null,
-  { deleteProduct, addBasket }
+  { deleteInProduct: deleteProduct, addInBasket: addBasket }
 )(PageProduct);

@@ -45,7 +45,7 @@ class Basket extends React.Component {
             <div key={basket.code}>
               <div className="basket-container-product">
                 <img
-                  src={basket.imgSrc}
+                  src={basket.image}
                   alt={basket.code}
                   className="basket-img"
                 />
@@ -109,7 +109,7 @@ Basket.propTypes = {
   deleteBasket: PropTypes.func.isRequired,
   baskets: PropTypes.arrayOf(
     PropTypes.shape({
-      imgSrc: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
       code: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       price: PropTypes.string.isRequired

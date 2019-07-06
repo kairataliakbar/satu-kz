@@ -79,11 +79,21 @@ const renderField = ({
   const inputTypes = <input {...input} className={className} type={type} />;
   const result = select ? selectTypes : inputTypes;
   return (
-    <div>
+    <div style={{ display: "flex", alignItems: "baseline" }}>
       {textarea ? textareaTypes : result}
       {touched &&
-        ((error && <span style={{ color: "red" }}>{error}</span>) ||
-          (warning && <span style={{ color: "red" }}>{warning}</span>))}
+        ((error && (
+          <span style={{ color: "red", paddingLeft: "5px" }}>
+            <i className="fas fa-exclamation-circle"></i>
+            {error}
+          </span>
+        )) ||
+          (warning && (
+            <span style={{ color: "red", paddingLeft: "5px" }}>
+              <i className="fas fa-exclamation-circle"></i>
+              {warning}
+            </span>
+          )))}
     </div>
   );
 };
@@ -206,7 +216,7 @@ const ProductForm = ({
         </div>
       </div>
       <div className="title-container">
-        <div className="left-tc">Цена:</div>
+        <div className="left-tc">Цена(тг):</div>
         <div className="right-tc">
           <Field
             name="price"
@@ -214,7 +224,6 @@ const ProductForm = ({
             component={renderField}
             className="text-prices"
           />
-          _тг.
         </div>
       </div>
       <div className="title-container">
@@ -292,6 +301,11 @@ renderField.propTypes = {
   type: PropTypes.string.isRequired,
   textarea: PropTypes.bool,
   select: PropTypes.bool,
+  children: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string
+    })
+  ),
   meta: PropTypes.shape({
     touched: PropTypes.bool.isRequired
   }).isRequired
@@ -299,7 +313,8 @@ renderField.propTypes = {
 
 renderField.defaultProps = {
   textarea: false,
-  select: false
+  select: false,
+  children: []
 };
 
 export default reduxForm({
