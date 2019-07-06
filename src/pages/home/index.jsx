@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import Products from "./components/Products";
+import Products from "./components/products";
 import { addBasket } from "../basket/basketAction";
 
 const Home = props => {

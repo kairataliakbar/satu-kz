@@ -1,5 +1,5 @@
 export const heading = [
-  { value: "", name: "Рубрика" },
+  { value: "_", name: "Рубрика" },
   { value: "phon", name: "Смартфоны" },
   { value: "pc", name: "Компьютеры" },
   { value: "tv audio and video", name: "ТВ, аудио и видио" },
@@ -12,7 +12,7 @@ export const heading = [
   }
 ];
 export const model = [
-  { value: "", name: "Модель" },
+  { value: "_", name: "Модель" },
   { value: "apple", name: "Apple" },
   { value: "samsung", name: "Samsung" },
   { value: "htc", name: "HTC" },
@@ -32,7 +32,7 @@ export const model = [
   { value: "haier", name: "Haier" }
 ];
 export const color = [
-  { value: "", name: "Цвет" },
+  { value: "_", name: "Цвет" },
   { value: "black", name: "Черный" },
   { value: "white", name: "Белый" },
   { value: "gold", name: "Золотой" },
@@ -42,7 +42,7 @@ export const color = [
   { value: "brown", name: "Коричневый" }
 ];
 export const data = [
-  { value: "", name: "Год" },
+  { value: "_", name: "Год" },
   { value: "2014", name: "2014" },
   { value: "2015", name: "2015" },
   { value: "2016", name: "2016" },

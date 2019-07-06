@@ -12,7 +12,7 @@ const NewProduct = props => {
     <div className="main">
       <div className="top-main">Подать объявление на SATU.KZ</div>
       <div className="body-main">
-        <ProductForm onSubmit={handleSubmit} />
+        <ProductForm handleSubmitAddProduct={handleSubmit} />
       </div>
     </div>
   );

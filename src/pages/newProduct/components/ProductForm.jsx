@@ -23,25 +23,38 @@ const FileInput = ({
 
 const validate = values => {
   const errors = {};
-  if (!values.titleProduct) {
-    errors.titleProduct = "Required";
-  } else if (values.titleProduct.length < 10) {
-    errors.titleProduct = "Must be 10 characters or less";
+  const requiredMassage = " Required";
+  if (!values.title) {
+    errors.title = requiredMassage;
+  } else if (values.title.length < 10) {
+    errors.title = "Must be 10 characters or less";
   }
-  if (!values.codeProduct) {
-    errors.codeProduct = "Required";
-  } else if (Number.isNaN(values.codeProduct)) {
-    errors.codeProduct = "Must be a number";
-  } else if (Number(values.codeProduct.length) < 8) {
-    errors.codeProduct = "Must be 8 characters or less";
+  if (!values.code) {
+    errors.code = requiredMassage;
+  } else if (Number.isNaN(values.code)) {
+    errors.code = "Must be a number";
+  } else if (Number(values.code.length) < 8) {
+    errors.code = "Must be 8 characters or less";
   }
-  if (!values.priceProduct) {
-    errors.priceProduct = "Required";
+  if (!values.price) {
+    errors.price = requiredMassage;
   }
-  if (!values.textareaProduct) {
-    errors.textareaProduct = "Required";
-  } else if (values.textareaProduct.length < 60) {
-    errors.textareaProduct = "Must be 60 characters or less";
+  if (!values.textarea) {
+    errors.textarea = requiredMassage;
+  } else if (values.textarea.length < 60) {
+    errors.textarea = "Must be 60 characters or less";
+  }
+  if (values.heading === "_") {
+    errors.heading = requiredMassage;
+  }
+  if (values.model === "_") {
+    errors.model = requiredMassage;
+  }
+  if (values.color === "_") {
+    errors.color = requiredMassage;
+  }
+  if (values.data === "_") {
+    errors.data = requiredMassage;
   }
   return errors;
 };
@@ -51,33 +64,50 @@ const renderField = ({
   className,
   type,
   textarea,
+  children,
+  select,
   meta: { touched, error, warning }
 }) => {
-  const textareaType = (
+  const textareaTypes = (
     <textarea {...input} className={className} type={type} />
   );
-  const inputType = <input {...input} className={className} type={type} />;
+  const selectTypes = (
+    <select {...input} className={className} type={type}>
+      {children}
+    </select>
+  );
+  const inputTypes = <input {...input} className={className} type={type} />;
+  const result = select ? selectTypes : inputTypes;
   return (
     <div>
-      <div>
-        {textarea ? textareaType : inputType}
-        {touched &&
-          ((error && <span style={{ color: "red" }}>{error}</span>) ||
-            (warning && <span style={{ color: "red" }}>{warning}</span>))}
-      </div>
+      {textarea ? textareaTypes : result}
+      {touched &&
+        ((error && <span style={{ color: "red" }}>{error}</span>) ||
+          (warning && <span style={{ color: "red" }}>{warning}</span>))}
     </div>
   );
 };
 
-const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
+const ProductForm = ({
+  handleSubmitAddProduct,
+  handleSubmit,
+  reset,
+  valid,
+  submitting,
+  pristine
+}) => {
   const { heading, model, color, data } = Constants;
   return (
-    <form onSubmit={handleSubmit(value => console.log(value))}>
+    <form
+      onSubmit={handleSubmit(value => {
+        return handleSubmitAddProduct(value);
+      })}
+    >
       <div className="title-container">
         <div className="left-tc">Заголовок:</div>
         <div className="right-tc">
           <Field
-            name="titleProduct"
+            name="title"
             type="text"
             component={renderField}
             className="text-header"
@@ -88,7 +118,7 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Код товара:</div>
         <div className="right-tc">
           <Field
-            name="codeProduct"
+            name="code"
             type="number"
             component={renderField}
             className="code-product"
@@ -99,10 +129,11 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Рубрика:</div>
         <div className="right-tc">
           <Field
-            name="headingProduct"
+            name="heading"
             type="select"
-            component="select"
+            component={renderField}
             className="heading-tc"
+            select
           >
             {heading.map(option => {
               return (
@@ -118,10 +149,11 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Модель:</div>
         <div className="right-tc">
           <Field
-            name="modelProduct"
+            name="model"
             type="select"
-            component="select"
+            component={renderField}
             className="heading-tc"
+            select
           >
             {model.map(option => {
               return (
@@ -137,10 +169,11 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Цвет:</div>
         <div className="right-tc">
           <Field
-            name="colorProduct"
+            name="color"
             type="select"
-            component="select"
+            component={renderField}
             className="heading-tc"
+            select
           >
             {color.map(option => {
               return (
@@ -156,10 +189,11 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Год выпуска:</div>
         <div className="right-tc">
           <Field
-            name="dataProduct"
+            name="data"
             type="select"
-            component="select"
+            component={renderField}
             className="heading-tc"
+            select
           >
             {data.map(option => {
               return (
@@ -175,7 +209,7 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Цена:</div>
         <div className="right-tc">
           <Field
-            name="priceProduct"
+            name="price"
             type="number"
             component={renderField}
             className="text-prices"
@@ -187,7 +221,7 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="left-tc">Описание:</div>
         <div className="right-tc">
           <Field
-            name="textareaProduct"
+            name="textarea"
             type="textarea"
             component={renderField}
             className="text-area"
@@ -202,7 +236,7 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
         <div className="right-tc">
           <div className="add-img">
             <Field
-              name="imageProduct"
+              name="image"
               type="file"
               component={FileInput}
               className="add-img-file"
@@ -233,6 +267,7 @@ const ProductForm = ({ handleSubmit, reset, valid, submitting, pristine }) => {
 };
 
 ProductForm.propTypes = {
+  handleSubmitAddProduct: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
@@ -256,13 +291,15 @@ renderField.propTypes = {
   className: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   textarea: PropTypes.bool,
+  select: PropTypes.bool,
   meta: PropTypes.shape({
     touched: PropTypes.bool.isRequired
   }).isRequired
 };
 
 renderField.defaultProps = {
-  textarea: false
+  textarea: false,
+  select: false
 };
 
 export default reduxForm({

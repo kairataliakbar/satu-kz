@@ -8,5 +8,6 @@ import baskets from "./pages/basket/basketReducer";
 const reducers = combineReducers({ products, baskets, form: formRedux });
 
 const store = createStore(reducers, applyMiddleware(thunk));
+store.subscribe(() => console.log(store.getState()));
 
 export default store;
