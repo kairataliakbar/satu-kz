@@ -12,19 +12,18 @@ class UploadImage extends React.Component {
   }
 
   onChange(e) {
+    const { onSubmit } = this.props;
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.setState({ image: reader.result });
+      onSubmit(reader.result);
     };
-
-    const { onSubmit } = this.props;
-    onSubmit(e.target.value);
   }
 
-  onSubmit(value) {
-    return this.onSubmit(value);
+  onSubmit(image) {
+    return this.onSubmit(image);
   }
 
   render() {

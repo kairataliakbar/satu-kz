@@ -88,13 +88,13 @@ class ProductForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { image: "../../../../image/camera_a.gif" };
+    this.state = { imageSrc: "../../../../image/camera_a.gif" };
 
     this.resultUploadImage = this.resultUploadImage.bind(this);
   }
 
   resultUploadImage(value) {
-    this.setState({ image: value });
+    this.setState({ imageSrc: value });
   }
 
   render() {
@@ -107,11 +107,15 @@ class ProductForm extends React.Component {
       pristine
     } = this.props;
     const { heading, model, color, data } = Constants;
-    const { image } = this.state;
+    const { imageSrc } = this.state;
     return (
       <form
         onSubmit={handleSubmit(value => {
-          return handleSubmitAddProduct(value);
+          return handleSubmitAddProduct(
+            Object.assign(value, {
+              image: imageSrc
+            })
+          );
         })}
       >
         <div className="title-container">
@@ -247,12 +251,6 @@ class ProductForm extends React.Component {
             <div className="add-img">
               <UploadImage onSubmit={this.resultUploadImage} />
             </div>
-          </div>
-        </div>
-        <div className="title-container">
-          <div className="left-tc"></div>
-          <div className="right-tc">
-            <span className="code-product">{image}</span>
           </div>
         </div>
         <div className="button-container">
