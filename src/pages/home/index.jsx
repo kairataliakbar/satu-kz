@@ -2,13 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import Products from "./components/products";
+import Products from "./components/Products";
 import { addBasket } from "../basket/basketAction";
 
-const Home = props => {
-  const hendalSubmit = values => props.addBasket(values);
+const Home = ({ inBasket, products }) => {
+  const hendalSubmit = values => inBasket(values);
 
-  const { products } = props;
   return (
     <div className="main">
       <div className="bottom-main">
@@ -20,8 +19,12 @@ const Home = props => {
 };
 
 Home.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  addBasket: PropTypes.func.isRequired
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  inBasket: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -32,5 +35,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addBasket }
+  { inBasket: addBasket }
 )(Home);

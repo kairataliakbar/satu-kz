@@ -1,11 +1,11 @@
-export const addProduct = product => dispatch =>
+export const addProduct = payload => dispatch =>
   dispatch({
     type: "ADD_PRODUCT",
-    payload: product
+    payload
   });
 
-export const deleteProduct = product => dispatch =>
+export const deleteProduct = payload => dispatch =>
   dispatch({
     type: "DELETE_PRODUCT",
-    payload: product
+    payload
   });

@@ -27,7 +27,7 @@ class PageProduct extends React.Component {
   render() {
     const { product } = this.props;
     return (
-      <div className="product-detales-container">
+      <div className="product-details-container">
         <div className="container-product">
           <div className="image-product-container">
             <img alt="product" src={product.image} />

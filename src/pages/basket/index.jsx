@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -24,8 +23,8 @@ class Basket extends React.Component {
 
   hendalSubmitDelete() {
     const { deleteProduct } = this.state;
-    const { deleteBasket } = this.props;
-    deleteBasket(deleteProduct);
+    const { deleteInBasket } = this.props;
+    deleteInBasket(deleteProduct);
     this.setState({ showModal: false });
   }
 
@@ -106,7 +105,7 @@ const mapStateToProps = state => {
 };
 
 Basket.propTypes = {
-  deleteBasket: PropTypes.func.isRequired,
+  deleteInBasket: PropTypes.func.isRequired,
   baskets: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string.isRequired,
@@ -119,5 +118,5 @@ Basket.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { deleteBasket }
+  { deleteInBasket: deleteBasket }
 )(Basket);

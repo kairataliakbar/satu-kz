@@ -1,11 +1,11 @@
-export const addBasket = basket => dispatch =>
+export const addBasket = payload => dispatch =>
   dispatch({
     type: "ADD_BASKET",
-    payload: basket
+    payload
   });
 
-export const deleteBasket = basket => dispatch =>
+export const deleteBasket = payload => dispatch =>
   dispatch({
     type: "DELETE_BASKET",
-    payload: basket
+    payload
   });
