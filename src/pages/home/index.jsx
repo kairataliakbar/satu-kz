@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
-import Products from "./components/Products";
+import { connect } from "react-redux";
 import { addBasket } from "../basket/basketAction";
+
+import Products from "./components/products";
 
 const Home = ({ inBasket, products }) => {
   const hendalSubmit = values => inBasket(values);

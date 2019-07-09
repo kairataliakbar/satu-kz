@@ -17,7 +17,7 @@ class Basket extends React.Component {
     this.hendalSubmitDelete = this.hendalSubmitDelete.bind(this);
   }
 
-  onClick(e, product) {
+  onClick(product) {
     this.setState({ showModal: true, deleteProduct: product });
   }
 
@@ -40,21 +40,21 @@ class Basket extends React.Component {
       <div className="main">
         <div className="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
         <div className="basket-container">
-          {baskets.map(basket => (
-            <div key={basket.code}>
+          {baskets.map(product => (
+            <div key={product.code}>
               <div className="basket-container-product">
                 <img
-                  src={basket.image}
-                  alt={basket.code}
+                  src={product.image}
+                  alt={product.code}
                   className="basket-img"
                 />
                 <div className="basket-container-text">
-                  <div className="basket-headline">{basket.title}</div>
+                  <div className="basket-headline">{product.title}</div>
                   <div className="basket-codProduct">
-                    Код товара: {basket.code}
+                    Код товара: {product.code}
                   </div>
                   <div className="basket-prices">
-                    Цена товара: {basket.price} ₸
+                    Цена товара: {product.price} ₸
                   </div>
                 </div>
                 <div className="basket-button-container">
@@ -62,7 +62,7 @@ class Basket extends React.Component {
                     <input
                       type="button"
                       className="button-delete-basket"
-                      onClick={e => this.onClick(e, basket)}
+                      onClick={() => this.onClick(product)}
                       value="&times;"
                     />
                   </span>
@@ -100,7 +100,7 @@ class Basket extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    baskets: state.baskets
+    basket: state.basket
   };
 };
 

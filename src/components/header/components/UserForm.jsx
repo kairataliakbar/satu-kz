@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const UserForm = props => {
-  const { userEntry, entryInWebsite, modalOpen } = props;
+const UserForm = ({ userEntry, entryInWebsite, modalOpen }) => {
   return (
     <form>
       <input

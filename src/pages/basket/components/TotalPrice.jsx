@@ -6,7 +6,7 @@ const TotalPrice = ({ products }) => {
   return (
     <div className="basket-container-total">
       <div className="container-total-prices">
-        <div className="container-total">ИТОГО</div>
+        <div className="container-total">ИТОГО:</div>
         <div className="total-prices">
           {arrays.reduce((total, num) => total + num, 0)} ₸
         </div>

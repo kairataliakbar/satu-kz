@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import ProductForm from "./components/ProductForm";
 import { addProduct } from "./productAction";
 
-const NewProduct = props => {
-  const handleSubmit = values => props.addProduct(values);
+const NewProduct = ({ addInAction }) => {
+  const handleSubmit = values => addInAction(values);
 
   return (
     <div className="main">
@@ -19,10 +19,10 @@ const NewProduct = props => {
 };
 
 NewProduct.propTypes = {
-  addProduct: PropTypes.func.isRequired
+  addInAction: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { addProduct }
+  { addInAction: addProduct }
 )(NewProduct);
