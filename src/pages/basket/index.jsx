@@ -100,7 +100,7 @@ class Basket extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    basket: state.basket
+    baskets: state.baskets
   };
 };
 
