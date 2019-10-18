@@ -35,16 +35,16 @@ class Basket extends React.Component {
 
   render() {
     const { showModal } = this.state;
-    const { basket } = this.props;
+    const { baskets } = this.props;
     return (
       <div className="main">
         <div className="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
         <div className="basket-container">
-          {basket.map(product => (
+          {baskets.map(product => (
             <div key={product.code}>
               <div className="basket-container-product">
                 <img
-                  src={product.imgSrc}
+                  src={product.image}
                   alt={product.code}
                   className="basket-img"
                 />
@@ -71,7 +71,7 @@ class Basket extends React.Component {
             </div>
           ))}
         </div>
-        <TotalPrice products={basket} />
+        <TotalPrice products={baskets} />
         <Modal open={showModal} onClose={this.exitModal}>
           <div className="modal-basket-text">
             Вы действительно хотите удалить данный продукт с корзины?
@@ -100,15 +100,15 @@ class Basket extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    basket: state.basket
+    baskets: state.baskets
   };
 };
 
 Basket.propTypes = {
   deleteInBasket: PropTypes.func.isRequired,
-  basket: PropTypes.arrayOf(
+  baskets: PropTypes.arrayOf(
     PropTypes.shape({
-      imgSrc: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
       code: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       price: PropTypes.string.isRequired

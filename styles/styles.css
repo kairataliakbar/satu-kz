@@ -203,6 +203,10 @@ li {
   cursor: pointer;
 }
 
+.link-button {
+  text-decoration: none;
+}
+
 .menu ul li:first-child {
   border-left: 1px solid rgb(145, 97, 9);
 }

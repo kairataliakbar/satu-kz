@@ -1,17 +1,18 @@
-export const headingTitle = "heading";
-export const headingSelect = [
-  { value: "", name: "Рубрика" },
+export const heading = [
+  { value: "_", name: "Рубрика" },
   { value: "phon", name: "Смартфоны" },
   { value: "pc", name: "Компьютеры" },
   { value: "tv audio and video", name: "ТВ, аудио и видио" },
   { value: "appliances", name: "Бытовая техника" },
   { value: "equipment for kitchen", name: "Техника для кухни" },
   { value: "home", name: "Дом" },
-  { value: "auto products and transport", name: "Автотовары и транспорт" }
+  {
+    value: "auto products and transport",
+    name: "Автотовары и транспорт"
+  }
 ];
-export const modelTitle = "model";
-export const modelSelect = [
-  { value: "", name: "Модель" },
+export const model = [
+  { value: "_", name: "Модель" },
   { value: "apple", name: "Apple" },
   { value: "samsung", name: "Samsung" },
   { value: "htc", name: "HTC" },
@@ -30,9 +31,8 @@ export const modelSelect = [
   { value: "philips", name: "Philips" },
   { value: "haier", name: "Haier" }
 ];
-export const colorTitle = "color";
-export const colorSelect = [
-  { value: "", name: "Цвет" },
+export const color = [
+  { value: "_", name: "Цвет" },
   { value: "black", name: "Черный" },
   { value: "white", name: "Белый" },
   { value: "gold", name: "Золотой" },
@@ -41,9 +41,8 @@ export const colorSelect = [
   { value: "blue", name: "Синй" },
   { value: "brown", name: "Коричневый" }
 ];
-export const dataTitle = "data";
-export const dataSelect = [
-  { value: "", name: "Год" },
+export const data = [
+  { value: "_", name: "Год" },
   { value: "2014", name: "2014" },
   { value: "2015", name: "2015" },
   { value: "2016", name: "2016" },

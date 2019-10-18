@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import ProductForm from "./components/ProductForm";
-import addProduct from "./productAction";
+import { addProduct } from "./productAction";
 
 const NewProduct = ({ addInAction }) => {
   const handleSubmit = values => addInAction(values);
@@ -12,7 +12,7 @@ const NewProduct = ({ addInAction }) => {
     <div className="main">
       <div className="top-main">Подать объявление на SATU.KZ</div>
       <div className="body-main">
-        <ProductForm onSubmit={handleSubmit} />
+        <ProductForm handleSubmitAddProduct={handleSubmit} />
       </div>
     </div>
   );

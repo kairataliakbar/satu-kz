@@ -1,7 +1,11 @@
-const addProduct = payload => dispatch =>
+export const addProduct = payload => dispatch =>
   dispatch({
     type: "ADD_PRODUCT",
     payload
   });
 
-export default addProduct;
+export const deleteProduct = payload => dispatch =>
+  dispatch({
+    type: "DELETE_PRODUCT",
+    payload
+  });

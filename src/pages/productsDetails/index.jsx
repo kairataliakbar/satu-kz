@@ -27,7 +27,7 @@ const mapStateToProps = state => {
 ProductDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      cod: PropTypes.node
+      code: PropTypes.node
     }).isRequired
   }).isRequired,
   products: PropTypes.arrayOf(

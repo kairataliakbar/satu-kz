@@ -11,7 +11,7 @@ class Products extends React.PureComponent {
           <div key={product.code} className="forvord-container">
             <Link to={`/product-details/${product.code}`}>
               <div className="forvord-container-img">
-                <img src={product.imgSrc} alt={product.title} />
+                <img src={product.image} alt={product.title} />
                 <div className="forvord-container-text">{product.title}</div>
                 <div className="summa">{product.price} ₸</div>
               </div>
@@ -39,7 +39,7 @@ Products.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      imgSrc: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
       price: PropTypes.string.isRequired,
       code: PropTypes.string.isRequired
     })

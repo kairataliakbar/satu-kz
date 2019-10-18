@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addBasket } from "../basket/basketAction";
 
-import Products from "./components/Products";
+import Products from "./components/products";
 
 const Home = ({ inBasket, products }) => {
   const hendalSubmit = values => inBasket(values);

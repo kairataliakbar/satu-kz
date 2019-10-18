@@ -1,10 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
+import { reducer as formRedux } from "redux-form";
 import thunk from "redux-thunk";
 
 import products from "./pages/newProduct/productReducer";
-import basket from "./pages/basket/basketReducer";
+import baskets from "./pages/basket/basketReducer";
 
-const reducers = combineReducers({ products, basket });
+const reducers = combineReducers({ products, baskets, form: formRedux });
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
